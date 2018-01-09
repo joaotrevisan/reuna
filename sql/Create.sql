@@ -29,6 +29,27 @@ ALTER TABLE alunos
 ALTER TABLE alunos
   MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
   
+  
+/* USUARIOS ================================================== */
+
+DROP TABLE IF EXISTS usuarios;
+
+CREATE TABLE usuarios (
+  id int(11) NOT NULL,
+  usuario varchar(255) NOT NULL,  
+  senha varchar(255) NOT NULL,  
+  permissao varchar(100) NOT NULL,
+  created datetime NOT NULL,
+  modified datetime NOT NULL
+);
+
+ALTER TABLE usuarios
+  ADD PRIMARY KEY (id);
+  
+ALTER TABLE usuarios
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  
+  
 /* CURSOS ================================================== */
 
 DROP TABLE IF EXISTS cursos;
