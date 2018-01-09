@@ -6,7 +6,8 @@
     <title>CRUD com Bootstrap</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap.min.css">
     <style>
         body {
