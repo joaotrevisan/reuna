@@ -1,3 +1,7 @@
+/* ALUNOS ================================================== */
+
+DROP TABLE IF EXISTS alunos;
+
 CREATE TABLE alunos (
   id int(11) NOT NULL,
   nome_completo varchar(255) NOT NULL,  
@@ -14,6 +18,7 @@ CREATE TABLE alunos (
   telefone int(15) NOT NULL,
   celular int(15) NOT NULL,
   email int(255) NOT NULL,
+  curso_atual varchar(255) NOT NULL,
   created datetime NOT NULL,
   modified datetime NOT NULL
 );
@@ -22,4 +27,49 @@ ALTER TABLE alunos
   ADD PRIMARY KEY (id);
   
 ALTER TABLE alunos
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  
+/* CURSOS ================================================== */
+
+DROP TABLE IF EXISTS cursos;
+
+CREATE TABLE cursos (
+  id int(11) NOT NULL,
+  nome varchar(255) NOT NULL,  
+  letra varchar(5) NOT NULL,  
+  tipo varchar(100) NOT NULL,  
+  nome_monitor varchar(255) NOT NULL,
+  id_monitor int(11) NOT NULL,
+  estado varchar(100) NOT NULL,
+  created datetime NOT NULL,
+  modified datetime NOT NULL
+);
+
+ALTER TABLE cursos
+  ADD PRIMARY KEY (id);
+  
+ALTER TABLE cursos
+  MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  
+
+/* MATRICULAS ================================================== */
+
+DROP TABLE IF EXISTS matriculas;
+
+CREATE TABLE matriculas (
+  id int(11) NOT NULL,
+  id_aluno int(11) NOT NULL,
+  id_curso int(11) NOT NULL,
+  data_inicio date NOT NULL,
+  data_termino date NOT NULL,
+  estado varchar(100) NOT NULL,
+  cadeira int(5) NOT NULL,
+  created datetime NOT NULL,
+  modified datetime NOT NULL
+);
+
+ALTER TABLE matriculas
+  ADD PRIMARY KEY (id);
+  
+ALTER TABLE matriculas
   MODIFY id int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
