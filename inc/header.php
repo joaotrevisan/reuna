@@ -25,3 +25,4 @@
 </head>
 <body>
     <main class="container">
+    <a class="btn btn-sm btn-outline-primary" href="../main/index.php"><i class="fa fa-home 2x"></i> Menu</a>
