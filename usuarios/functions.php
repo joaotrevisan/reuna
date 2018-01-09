@@ -15,19 +15,17 @@ function index() {
 }
 
 /**
- *  Visualização de um Usuaior
- */
-function view($id = null) {
-  global $usuario;
-  $usuario = find('usuarios', $id);
-}
-
-/**
- *  Cadastro de Alunos
+ *  Cadastro de Usuarios
  */
 function add() {
+    if (!empty($_POST['usuario'])) {
+    
+    $today = 
+      date_create('now', new DateTimeZone('America/Sao_Paulo'));
 
-  if (!empty($_POST['usuario'])) {
+    $usuario = $_POST['usuario'];
+    $usuario['modified'] = $usuario['created'] = $today->format("Y-m-d H:i:s");
+    
     save('usuarios', $usuario);
     header('location: ..\index.php');
   }

@@ -58,7 +58,7 @@
                 </div>
             </form>
                 <div class="form-group">
-                    <a href="cadastro.php">
+                    <a href="usuarios/add.php">
                         <button class="btn btn-primary" style="width: 150px;"><i class="fa fa-plus"></i> Criar conta</button>
                     </a>
                 </div>
