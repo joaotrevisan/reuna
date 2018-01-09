@@ -27,14 +27,17 @@
                       <label for="letra">Letra</label>
                       <input type="text" class="form-control" name="curso['letra']" style="text-transform: uppercase;">
                     </div>
-                    <div class="form-group col-md-6">
-                      <label for="id_monitor">Monitor</label>
-                        <select class="form-control" name="curso['id_monitor']">
-                            <option value="Andamento">Andamento</option>
-                            <option value="Cancelado">Cancelado</option>
-                            <option value="Concluido">Concluído</option>
-                        </select>
-                    </div>
+                    <div class="col-lg-6">
+                        <label for="letra">Monitor</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" name="curso['id_monitor']" disabled value="<?php echo $id_monitor; ?>">
+                          <span class="input-group-btn">
+                              <a href="#" data-toggle="modal" data-target="#modal-monitor" data-curso="<?php echo $curso['id']; ?>">
+                                <button class="btn btn-primary" type="button"><i class="fas fa-search"></i> Buscar</button>
+                              </a>
+                          </span>
+                        </div><!-- /input-group -->
+                      </div><!-- /.col-lg-6 -->
                   </div>
 
                    <div class="row">
