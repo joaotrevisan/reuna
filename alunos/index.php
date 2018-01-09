@@ -5,64 +5,89 @@
 
 <?php include(HEADER_TEMPLATE); ?>
 
-<header>
-	<div class="row">
-		<div class="col-sm-6">
-			<h2>Alunos</h2>
-		</div>
-		<div class="col-sm-6 text-right h2">
-	    	<a class="btn btn-primary" href="add.php"><i class="fa fa-plus"></i> Novo Aluno</a>
-	    	<a class="btn btn-default" href="index.php"><i class="fa fa-refresh"></i> Atualizar</a>
-	    </div>
-	</div>
-</header>
-
-<?php if (!empty($_SESSION['message'])) : ?>
-	<div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		<?php echo $_SESSION['message']; ?>        
-	</div>
-	<?php clear_messages(); ?>
-<?php endif; ?>
-
-<hr>
-
-<table class="table table-hover">
-<thead>
-	<tr>
-		<th>ID</th>
-		<th width="30%">Nome</th>
-		<th>CPF/CNPJ</th>
-		<th>Telefone</th>
-		<th>Atualizado em</th>
-		<th>Opções</th>
-	</tr>
-</thead>
-<tbody>
-<?php if ($alunos) : ?>
-<?php foreach ($alunos as $aluno) : ?>
-	<tr>
-		<td><?php echo $aluno['id']; ?></td>
-		<td><?php echo $aluno['nome_completo']; ?></td>
-		<td><?php echo $aluno['profissao']; ?></td>
-		<td>00 0000-0000</td>
-		<td><?php echo $aluno['modified']; ?></td>
-		<td class="actions text-right">
-			<a href="view.php?id=<?php echo $aluno['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
-			<a href="edit.php?id=<?php echo $aluno['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
-			<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-aluno="<?php echo $aluno['id']; ?>">
-				<i class="fa fa-trash"></i> Excluir
-			</a>
-		</td>
-	</tr>
-<?php endforeach; ?>
-<?php else : ?>
-	<tr>
-		<td colspan="6">Nenhum registro encontrado.</td>
-	</tr>
-<?php endif; ?>
-</tbody>
-</table>
+<div class="container" style="padding-top: 5%;">
+    <center>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-users fa-2x"></i>
+                <h3>Alunos</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm">
+                        <b>#</b>
+                    </div>        
+                    <div class="col-4" align="left">
+                        <b>Nome</b>
+                    </div>            
+                    <div class="col">
+                        <b>Curso Atual</b>
+                    </div>            
+                    <div class="col">
+                        <b>Telefone</b>
+                    </div>            
+                    <div class="col">
+                        <b>Celular</b>
+                    </div>            
+                    <div class="col">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="add.php" class="btn btn-sm btn-outline-success">
+                                <i class="fas fa-plus"></i> Adicionar
+                            </a>
+                            <a href="index.php" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-sync"></i>
+                            </a>
+                        </div>
+                    </div>                    
+                </div>
+                <?php if ($alunos) : ?>
+                    <?php foreach ($alunos as $aluno) : ?>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm">
+                                <?php echo $aluno['id']; ?>
+                            </div>
+                            <div class="col-4" align="left">
+                                <?php echo $aluno['nome_completo']; ?>
+                            </div>
+                            <div class="col">
+                                <?php echo $aluno['signo']; ?>
+                            </div>
+                            <div class="col">
+                                <?php echo $aluno['telefone']; ?>
+                            </div>
+                            <div class="col">
+                                <?php echo $aluno['celular']; ?>
+                            </div>
+                            <div class="col">
+                                <div class="btn-group" role="group">
+                                    <!--<a href="view.php?id=<?php echo $aluno['id']; ?>" class="btn btn-sm btn-outline-primary">
+                                        <i class="fa fa-eye"></i>
+                                    </a>-->
+                                    <a href="edit.php?id=<?php echo $aluno['id']; ?>" class="btn btn-sm btn-outline-primary" style="width:95px;">
+                                        <i class="fa fa-edit"></i> Alterar
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#delete-modal" data-aluno="<?php echo $aluno['id']; ?>">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                        <?php else : ?>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                Nenhum registro encontrado.
+                            </div>
+                        </div>
+                <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </center>
+</div>
 
 <?php include('modal.php'); ?>
 

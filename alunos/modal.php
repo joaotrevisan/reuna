@@ -7,11 +7,12 @@
         <h4 class="modal-title" id="modalLabel">Excluir Item</h4>
       </div>
       <div class="modal-body">
-        Deseja realmente excluir este item?
+        <p>Deseja realmente <b>excluir</b> este aluno?</p>
+        <small>Depois que um aluno é excluído, todas as informações serão perdidas e não podem ser recuperadas!</small>
       </div>
       <div class="modal-footer">
-        <a id="confirm" class="btn btn-primary" href="#">Sim</a>
-        <a id="cancel" class="btn btn-default" data-dismiss="modal">N&atilde;o</a>
+        <a id="confirm" class="btn btn-outline-danger" href="#">Sim</a>
+        <a id="cancel" class="btn btn-outline-default" data-dismiss="modal">N&atilde;o</a>
       </div>
     </div>
   </div>
