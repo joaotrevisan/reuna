@@ -3,7 +3,7 @@
 
 	<hr>
 	<footer class="container">
-		<p>&copy;2016 - Web Dev Academy</p>
+		<p>&copy;2018 - REUNA - Associação Filosófica</p>
 	</footer>
 
 	

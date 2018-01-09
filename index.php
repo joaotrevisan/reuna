@@ -10,19 +10,7 @@
 <?php if ($db) : ?>
 
 <div class="row">
-	<div class="col-xs-6 col-sm-3 col-md-2">
-		<a href="alunos/add.php" class="btn btn-primary">
-			<div class="row">
-				<div class="col-xs-12 text-center">
-					<i class="fa fa-plus fa-5x"></i>
-				</div>
-				<div class="col-xs-12 text-center">
-					<p>Novo Aluno</p>
-				</div>
-			</div>
-		</a>
-	</div>
-
+	
 	<div class="col-xs-6 col-sm-3 col-md-2">
 		<a href="alunos" class="btn btn-default">
 			<div class="row">
@@ -35,6 +23,20 @@
 			</div>
 		</a>
 	</div>
+    
+    <div class="col-xs-6 col-sm-3 col-md-2">
+		<a href="cursos" class="btn btn-default">
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<i class="fa fa-book fa-5x"></i>
+				</div>
+				<div class="col-xs-12 text-center">
+					<p>Cursos</p>
+				</div>
+			</div>
+		</a>
+	</div>
+    
 </div>
 
 <?php else : ?>

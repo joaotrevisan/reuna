@@ -3,31 +3,31 @@
 require_once('../config.php');
 require_once(DBAPI);
 
-$alunos = null;
-$aluno = null;
+$cursos = null;
+$curso = null;
 
 /**
- *  Listagem de Alunos
+ *  Listagem de Cursos
  */
 function index() {
-	global $alunos;
-	$alunos = find_all('alunos');
+	global $cursos;
+	$cursos = find_all('cursos');
 }
 
 /**
- *  Cadastro de Alunos
+ *  Cadastro de Cursos
  */
 function add() {
 
-  if (!empty($_POST['aluno'])) {
+  if (!empty($_POST['curso'])) {
     
     $today = 
       date_create('now', new DateTimeZone('America/Sao_Paulo'));
 
-    $aluno = $_POST['aluno'];    
-    $aluno['modified'] = $aluno['created'] = $today->format("Y-m-d H:i:s");
+    $curso = $_POST['curso'];
+    $curso['modified'] = $curso['created'] = $today->format("Y-m-d H:i:s");
     
-    save('alunos', $aluno);
+    save('cursos', $curso);
     header('location: index.php');
   }
 }
@@ -45,17 +45,17 @@ function edit() {
 
     $id = $_GET['id'];
 
-    if (isset($_POST['aluno'])) {
+    if (isset($_POST['curso'])) {
 
-      $aluno = $_POST['aluno'];
-      $aluno['modified'] = $now->format("Y-m-d H:i:s");
+      $curso = $_POST['curso'];
+      $curso['modified'] = $now->format("Y-m-d H:i:s");
 
-      update('alunos', $id, $aluno);
+      update('cursos', $id, $curso);
       header('location: index.php');
     } else {
 
-      global $aluno;
-      $aluno = find('alunos', $id);
+      global $curso;
+      $curso = find('cursos', $id);
     } 
   } else {
     header('location: index.php');
@@ -67,8 +67,8 @@ function edit() {
  *  Visualização de um Cliente
  */
 function view($id = null) {
-  global $aluno;
-  $aluno = find('alunos', $id);
+  global $curso;
+  $curso = find('cursos', $id);
 }
 
 
@@ -77,8 +77,8 @@ function view($id = null) {
  */
 function delete($id = null) {
 
-  global $aluno;
-  $aluno = remove('alunos', $id);
+  global $curso;
+  $curso = remove('cursos', $id);
 
   header('location: index.php');
 }

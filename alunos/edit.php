@@ -5,10 +5,6 @@
 
 <?php include(HEADER_TEMPLATE); ?>
 
-<?php 
-  require_once('functions.php'); 
-  add();
-?>
 <div class="container" style="padding-top: 5%;">
     <div class="container">
         <div class="card">
@@ -19,14 +15,14 @@
                 </center>
             </div>
             <div class="card-body">
-                <form action="edit.php?id=<?php echo $customer['id']; ?>" method="post">
+                <form action="edit.php?id=<?php echo $aluno['id']; ?>" method="post">
                   <div class="row">
-                    <div class="form-group col-md-8">
+                    <div class="form-group col-md-7">
                       <label for="nome_completo">Nome Completo</label>
-                      <input type="text" class="form-control" name="aluno['nome_completo']" value="<?php echo $aluno['nome_completo']; ?>">
+                      <input type="text" class="form-control" name="aluno['nome_completo']" style="text-transform: uppercase;" value="<?php echo $aluno['nome_completo']; ?>">
                     </div>
 
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                       <label for="data_nascimento">Data Nascimento</label>
                       <input type="date" class="form-control" name="aluno['data_nascimento']" value="<?php echo $aluno['data_nascimento']; ?>">
                     </div>
@@ -79,15 +75,15 @@
                   </div>
 
                   <div class="row">
-                    <div class="form-group col-md-3">
-                      <label for="bairro">Bairro</label>
-                      <input type="text" class="form-control" name="aluno['bairro']" value="<?php echo $aluno['bairro']; ?>">
-                    </div>
-
                     <div class="form-group col-md-2">
                       <label for="cep">CEP</label>
                       <input type="text" class="form-control" name="aluno['cep']" value="<?php echo $aluno['cep']; ?>">
                     </div>
+                      
+                    <div class="form-group col-md-3">
+                      <label for="bairro">Bairro</label>
+                      <input type="text" class="form-control" name="aluno['bairro']" value="<?php echo $aluno['bairro']; ?>">
+                    </div>                    
 
                     <div class="form-group col-md-2">
                       <label for="cidade">Cidade</label>
@@ -113,7 +109,7 @@
                   <div class="row">
                     <div class="form-group col-md-12">
                       <label for="email">E-mail</label>
-                      <input type="text" class="form-control" name="aluno['email']" value="<?php echo $aluno['email']; ?>">
+                      <input type="text" class="form-control" name="aluno['email']" style="text-transform: lowercase;" value="<?php echo $aluno['email']; ?>">
                     </div>
                   </div>
 
