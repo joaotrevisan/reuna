@@ -42,7 +42,7 @@
                     </div>                    
                 </div>
                 <?php if ($cursos) : ?>
-                    <?php foreach (cursos as $curso) : ?>
+                    <?php foreach ($cursos as $curso) : ?>                    
                         <hr>
                         <div class="row">
                             <div class="col-sm">

@@ -16,6 +16,7 @@
             </div>
             <div class="card-body">
                 <form action="edit.php?id=<?php echo $aluno['id']; ?>" method="post">
+                  <!-- area de campos do form -->
                   <div class="row">
                     <div class="form-group col-md-7">
                       <label for="nome_completo">Nome Completo</label>
@@ -37,29 +38,29 @@
                     <div class="form-group col-md-2">
                       <label for="signo">Signo</label>
                         <select class="form-control" name="aluno['signo']" value="<?php echo $aluno['signo']; ?>">
-                            <option value="Aquário">Aquário</option>
-                            <option value="Peixes">Peixes</option>
-                            <option value="Áries">Áries</option>
-                            <option value="Trouro">Touro</option>
-                            <option value="Gêmeos">Gêmeos</option>
-                            <option value="Câncer">Câncer</option>
-                            <option value="Leão">Leão</option>
-                            <option value="Virgem">Virgem</option>
-                            <option value="Libra">Libra</option>
-                            <option value="Escorpião">Escorpião</option>
-                            <option value="Sagitário">Sagitário</option>
-                            <option value="Capricórnio">Capricórnio</option>
+                            <option <?php if ($aluno['signo'] == 'Aquario') echo 'selected'; ?> value="Aquario">Aquário</option>
+                            <option <?php if ($aluno['signo'] == 'Peixes') echo 'selected'; ?> value="Peixes">Peixes</option>
+                            <option <?php if ($aluno['signo'] == 'Aries') echo 'selected'; ?> value="Aries">Áries</option>
+                            <option <?php if ($aluno['signo'] == 'Trouro') echo 'selected'; ?> value="Trouro">Touro</option>
+                            <option <?php if ($aluno['signo'] == 'Gemeos') echo 'selected'; ?> value="Gemeos">Gêmeos</option>
+                            <option <?php if ($aluno['signo'] == 'Cancer') echo 'selected'; ?> value="Cancer">Câncer</option>
+                            <option <?php if ($aluno['signo'] == 'Leao') echo 'selected'; ?> value="Leao">Leão</option>
+                            <option <?php if ($aluno['signo'] == 'Virgem') echo 'selected'; ?> value="Virgem">Virgem</option>
+                            <option <?php if ($aluno['signo'] == 'Libra') echo 'selected'; ?> value="Libra">Libra</option>
+                            <option <?php if ($aluno['signo'] == 'Escorpiao') echo 'selected'; ?> value="Escorpiao">Escorpião</option>
+                            <option <?php if ($aluno['signo'] == 'Sagitario') echo 'selected'; ?> value="Sagitario">Sagitário</option>
+                            <option <?php if ($aluno['signo'] == 'Capricornio') echo 'selected'; ?> value="Capricornio">Capricórnio</option>
                         </select>
                     </div>
 
                     <div class="form-group col-md-3">
                       <label for="estado_civil">Estado Civil</label>
                         <select class="form-control" name="aluno['estado_civil']" value="<?php echo $aluno['estado_civil']; ?>">
-                            <option value="Solteiro(a)">Solteiro(a)</option>
-                            <option value="Casado(a)">Casado(a)</option>
-                            <option value="Divorciado(a)">Divorciado(a)</option>
-                            <option value="Viúvo(a)">Viúvo(a)</option>
-                            <option value="Separado(a)">Separado(a)</option>
+                            <option <?php if ($aluno['estado_civil'] == 'Solteiro') echo 'selected'; ?> value="Solteiro">Solteiro(a)</option>
+                            <option <?php if ($aluno['estado_civil'] == 'Casado') echo 'selected'; ?> value="Casado">Casado(a)</option>
+                            <option <?php if ($aluno['estado_civil'] == 'Divorciado') echo 'selected'; ?> value="Divorciado">Divorciado(a)</option>
+                            <option <?php if ($aluno['estado_civil'] == 'Viuvo') echo 'selected'; ?> value="Viuvo">Viúvo(a)</option>
+                            <option <?php if ($aluno['estado_civil'] == 'Separado') echo 'selected'; ?> value="Separado">Separado(a)</option>
                         </select>
                     </div>
 
