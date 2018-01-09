@@ -22,7 +22,6 @@ function close_database($conn) {
 	}
 }
 
-
 /**
  *  Pesquisa um Registro pelo ID em uma Tabela
  */
@@ -173,6 +172,30 @@ function remove( $table = null, $id = null ) {
     $_SESSION['message'] = $e->GetMessage();
     $_SESSION['type'] = 'danger';
   }
+
+  close_database($database);
+}
+
+//MÉTODOS CUSTOMIZADOS
+
+function findUsuario( $usuario = null, $senha = null ){
+    $database = open_database();
+    try{
+        $sql = "SELECT * FROM usuarios WHERE usuario='".$usuario."' AND senha='".$senha."'";
+        $result = $database->query($sql);
+        if ($result->num_rows > 0) {
+            return 1;
+	    }
+        else{
+            return 0;
+        }
+        
+    }
+    catch (Exception $e){
+
+        $_SESSION['message'] = $e->GetMessage();
+        $_SESSION['type'] = 'danger';
+    }
 
   close_database($database);
 }
