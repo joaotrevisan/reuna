@@ -1,6 +1,10 @@
-<?php require_once 'config.php'; ?>
-<?php require_once DBAPI; ?>
-<?php $db = open_database(); ?>
+<?php 
+    require_once 'config.php';
+    require_once('functions.php');
+    require_once DBAPI;
+    $db = open_database(); 
+    listarUsuarios();
+?>
 
 <!DOCTYPE html>
 
@@ -48,7 +52,15 @@
             <br>
             <form action="main\login.php" method="post">
                 <div class="form-group">
-                    <input required class="form-control" type="text" name="usuario" placeholder="Usuário">
+                    <select class="form-control" name="usuario" id="selectMonitor">
+                        <?php if ($usuarios) : ?>
+                            <?php foreach ($usuarios as $usuario) : ?>
+                                <option value="<?php echo $usuario['usuario']; ?>"><?php echo $usuario['usuario']; ?></option>
+                            <?php endforeach; ?>
+                            <?php else : ?>
+                                <option value="">Nenhum registro encontrado</option>
+                            <?php endif; ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <input required class="form-control" type="password" name="senha" placeholder="Senha">

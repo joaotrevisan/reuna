@@ -14,16 +14,15 @@
                 <h3>Matrícula</h3>
             </div>
             <div class="card-body">
-                
                 <div class="row">
-                    <div class="form-group col-md-3" align="left">
+                    <div class="form-group col-md-6" align="left">
                       <label for="estado_civil">Curso</label>
                         <select class="form-control" name="aluno['estado_civil']">
                             <option value="">Básico 1</option>
                             <option value="">Básico 2</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-3" align="left">
+                    <div class="form-group col-md-6" align="left">
                         <label for="estado_civil">Aluno</label>
                         <div class="input-group">
                           <input type="text" class="form-control" placeholder="pesquisar por nome...">
@@ -32,20 +31,33 @@
                           </span>
                         </div><!-- /input-group -->  
                     </div>
-                    <div class="form-group col-md-1">
-                        <br>
-                        <i class="fas fa-arrow-right fa-2x"></i>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-4">
+                                <button class="btn btn-outline-primary" style="width:98%;"><i class="fa fa-print"></i> Crachá</button>
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-outline-primary" style="width:104%;"><i class="fa fa-print"></i> Lista Secretária</button>
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-outline-primary" style="width:98%;"><i class="fa fa-print"></i> Lista Portária</button>
+                            </div>
+                        </div>
+                        
                     </div>
-                    <div class="form-group col-md-3" align="left">
-                      <label for="estado_civil">Curso Destino</label>
+                    <div class="col">
+                        <div class="input-group">
                         <select class="form-control" name="aluno['estado_civil']">
                             <option value="">Básico 1</option>
                             <option value="">Básico 2</option>
                         </select>
-                    </div>                                      
-                    <div class="form-group col-md-2">
-                        <br>
-                        <button type="button" class="btn btn-lg btn-success">Aplicar</button>
+                            <span class="input-group-btn">
+                                <button class="btn btn-outline-primary" type="button">Inscrever Alunos <i class="fas fa-arrow-right"></i></button>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <hr>
