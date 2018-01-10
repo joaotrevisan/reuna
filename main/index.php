@@ -5,10 +5,51 @@
 
 <?php include(HEADER_TEMPLATE); ?>
 
-<h4>Menu Principal</h4>
-<ul class="list-group">
-    <a href="../alunos/index.php" class="list-group-item list-group-item list-group-item-action">Alunos</a>
-    <a href="../cursos/index.php"  class="list-group-item list-group-item-action">Cursos</a>
-    <a href="../matriculas/index.php"  class="list-group-item list-group-item-action">Matriculas</a>
-    <a href="../main/logoff.php"  class="list-group-item list-group-item-action  list-group-item-danger">Sair</a>
-</ul>
+
+<div class="container" style="padding-top: 5%;">
+    <center>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Menu Principal</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <a href="../alunos/index.php" class="btn btn-lg btn-outline-primary" style="width: 100%; height:100%;">
+                                <br>
+                                <h4><i class="fa fa-users fa-3x"></i>
+                                <br>
+                                <hr>
+                                Alunos</h4>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="../cursos/index.php"  class="btn btn-lg btn-outline-primary" style="width: 100%; height:100%;">
+                                <br>
+                                <h4><i class="fa fa-book fa-3x"></i>
+                                <br>
+                                <hr>
+                                Cursos & Preceptorias</h4>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="../matriculas/index.php"  class="btn btn-lg btn-outline-primary" style="width: 100%; height:100%;">
+                                <br>
+                                <h4>
+                                    <i i class="fas fa-user fa-3x" data-fa-transform="shrink-10" data-fa-mask="fas fa-file"></i>
+                                <br>
+                                <hr>
+                                Inscrições</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="list-group">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </center>
+</div>
+
+<?php include(FOOTER_TEMPLATE); ?>

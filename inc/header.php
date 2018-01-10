@@ -25,4 +25,11 @@
 </head>
 <body>
     <main class="container">
-    <a class="btn btn-sm btn-outline-primary" href="../main/index.php"><i class="fa fa-home 2x"></i> Menu</a>
+    <div class="row">
+        <div class="col" align="left">
+            <a class="btn btn-sm btn-outline-primary" href="../main/index.php"><i class="fa fa-home 2x"></i> Menu</a>
+        </div>
+        <div class="col" align="right">
+            <a class="btn btn-sm btn-outline-danger" href="../main/logoff.php"><i class="fa fa-sign-out-alt 2x"></i> Sair</a>
+        </div>
+    </div>
