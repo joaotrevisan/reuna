@@ -1,7 +1,7 @@
 <?php require_once 'config.php'; ?>
 <?php require_once DBAPI; ?>
-
 <?php $db = open_database(); ?>
+
 <!DOCTYPE html>
 
 <html>
@@ -27,7 +27,7 @@
     <div class="container" style="padding-top: 10%; width: 400px;">
         <center>
             <h1>RE UNA</h1>
-            <p>Insira seu e-mail, sua senha e faça seu login.</p>
+            <p>Insira seu usuário e senha para acessar o sistema.</p>
             <?php
             if(isset($_SESSION['usuario'])){
                 unset($_SESSION);

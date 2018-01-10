@@ -17,7 +17,7 @@
                 
                 <div class="row">
                     <div class="form-group col-md-10">
-                        <input type="text" class="form-control" name="pesquisarNome" id="pesquisarNome" value="" placeholder="pesquisar por nome..." oninput="PesquisarNomeOnInput()">
+                        <input type="text" class="form-control" name="pesquisarNome" id="pesquisarNome" value="" placeholder="pesquisar por nome..." oninput="pesquisarNomeOnInput()">
                     </div>
                     <div class="form-group col-md-2">                      
                         <a href="" id="pesquisarLink" class="btn btn-sm btn-secondary"><i class="fas fa-search"></i> Pesquisar</a>
@@ -105,7 +105,7 @@
 <?php include(FOOTER_TEMPLATE); ?>
 
 <script>
-   function PesquisarNomeOnInput()
+   function pesquisarNomeOnInput()
     {
         var x = document.getElementById("pesquisarNome").value;
         

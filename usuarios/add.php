@@ -3,16 +3,6 @@
   add();
 ?>
 <html>
-    <script type="text/javascript">
-        function validar(){
-            var senha = document.forms["form"]["usuario['senha']"].value;
-            var senhaC = document.forms["form"]["senhaC"].value;
-            if(senha != senhaC){
-                window.alert("As senhas tem de conferir!");
-                event.preventDefault();
-            }
-        }
-    </script>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -71,6 +61,10 @@
                                         <option value="2">Secratário(a)</option>
                                     </select>
                                 </div>
+                                <div class="form-group col-3">
+                                    <label for="senha_cadastro">Senha Cadastro</label>
+                                    <input required type="password" class="form-control" name="senhaControle">
+                                </div>
                             </div>
                           <div id="actions" class="row">
                             <div class="col-md-12">
@@ -85,3 +79,33 @@
 
 
 <?php include(FOOTER_TEMPLATE); ?>
+        
+<script>
+    function validarSenhaControle(){
+        var senha = document.forms["form"]["senhaControle"].value;
+        
+        // Obtém a data/hora atual
+        var data = new Date();
+        // Guarda cada pedaço em uma variável
+        var dia     = data.getDate();           // 1-31
+        var mes     = data.getMonth();          // 0-11 (zero=janeiro)
+        // Hash 
+        var hashSenha = (dia + 7) +""+ (mes + 1 + 12);        
+        
+        if(senha != hashSenha){
+            window.alert("A senha de cadastro não é válida. Consulte o desenvolvedor.");
+            event.preventDefault();
+        }
+    }
+    
+    function validar(){
+        var senha = document.forms["form"]["usuario['senha']"].value;
+        var senhaC = document.forms["form"]["senhaC"].value;
+        if(senha != senhaC){
+            window.alert("A confirmação de senha deve ser igual a senha informada");
+            event.preventDefault();
+        }
+        
+        validarSenhaControle();
+    }
+</script>
