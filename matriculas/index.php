@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="form-group col-md-5" align="left">
                           <label for="estado_civil">Curso Atual</label>
-                            <select class="form-control" name="$curso['id']" id="cursoAtual" onchange="cursoAtualOnChange()">                            
+                            <select class="form-control selectpicker" name="$curso['id']" id="cursoAtual" onchange="cursoAtualOnChange()" >                            
                                 <?php if ($cursos) : ?>
                                     <?php foreach ($cursos as $curso) : ?>                                    
                                         <!-- monta o option de curso -->
