@@ -176,7 +176,9 @@ function remove( $table = null, $id = null ) {
   close_database($database);
 }
 
-//MÉTODOS CUSTOMIZADOS
+// ************************************************************
+// MÉTODOS CUSTOMIZADOS
+//*************************************************************
 
 function findUsuario( $usuario = null, $senha = null ){
     $database = open_database();
@@ -198,4 +200,30 @@ function findUsuario( $usuario = null, $senha = null ){
     }
 
   close_database($database);
+}
+
+
+/**
+ *  Pesquisa todos os Monitores na tabela Alunos
+ */
+function findMonitores() {
+  
+	$database = open_database();
+	$found = null;
+
+	try {
+	    $sql = "SELECT * FROM alunos WHERE tipo = 'Monitor'";
+	    $result = $database->query($sql);
+        
+        if ($result->num_rows > 0) {
+	      $found = $result->fetch_all(MYSQLI_ASSOC);
+        }
+        
+	} catch (Exception $e) {
+	  $_SESSION['message'] = $e->GetMessage();
+	  $_SESSION['type'] = 'danger';
+  }
+	
+	close_database($database);
+	return $found;
 }

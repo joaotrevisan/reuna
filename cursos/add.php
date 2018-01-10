@@ -1,7 +1,7 @@
 <?php 
   require_once('functions.php'); 
-  add();
-  $id_monitor = 0;
+  add(); 
+  listarMonitores();
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
@@ -29,11 +29,19 @@
                     </div>
                     <div class="form-group col-md-6">
                       <label for="id_monitor">Monitor</label>
-                        <select class="form-control" name="curso['id_monitor']">
-                            <option value="Andamento">Andamento</option>
-                            <option value="Cancelado">Cancelado</option>
-                            <option value="Concluido">Concluído</option>
+                        <select class="form-control" name="curso['id_monitor']" id="selectMonitor" onchange="selectMonitorFunction()">
+                            <!-- DEVE RECUPERAR OS ALUNOS "monitores" E PREENCHER O ARRAY -->
+                            <?php if ($monitores) : ?>
+                                <?php foreach ($monitores as $monitor) : ?>
+                                    <option value="<?php echo $monitor['id']; ?>"><?php echo $monitor['nome_completo']; ?></option>
+                                <?php endforeach; ?>
+                                <?php else : ?>
+                                    <option value="">Nenhum registro encontrado</option>
+                                <?php endif; ?>
                         </select>
+                        <?php if ($monitores) : ?>                           
+                            <input type="hidden" value="<?php echo $monitores[0]['nome_completo']; ?>" name="curso['nome_monitor']" id="inputMonitor"/>
+                         <?php endif; ?>
                     </div>
                   </div>
 
@@ -68,6 +76,13 @@
     </div>
 </div>
 
-<?php include('modal_monitor.php'); ?>
-
 <?php include(FOOTER_TEMPLATE); ?>
+
+<script>
+    // Quando alterado a combo -> guarda o nome do monitor no input
+    function selectMonitorFunction()
+    {
+        var x = document.getElementById("selectMonitor").selectedIndex;
+        document.getElementById('inputMonitor').value=  document.getElementsByTagName("option")[x].text;
+    }
+</script>

@@ -1,6 +1,7 @@
 <?php 
   require_once('functions.php'); 
   edit();
+  listarMonitores();
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
@@ -18,19 +19,29 @@
                 <form action="edit.php?id=<?php echo $curso['id']; ?>" method="post">
                   <!-- area de campos do form -->
                   <div class="row">
-                    <div class="form-group col-md-7">
+                    <div class="form-group col-md-4">
                       <label for="nome">Nome</label>
                       <input type="text" class="form-control" name="curso['nome']" style="text-transform: uppercase;" value="<?php echo $curso['nome']; ?>">
                     </div>
 
-                    <div class="form-group col-md-1">
+                    <div class="form-group col-md-2">
                       <label for="letra">Letra</label>                      
                       <input type="text" class="form-control" name="curso['letra']" style="text-transform: uppercase;" value="<?php echo $curso['letra']; ?>">
                     </div>
 
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                       <label for="id_monitor">Monitor</label>
-                      <input type="text" class="form-control" name="curso['id_monitor']" value="<?php echo $curso['id_monitor']; ?>">
+                        <select class="form-control" name="curso['id_monitor']" id="selectMonitor" onchange="selectMonitorFunction()">
+                            <!-- DEVE RECUPERAR OS ALUNOS "monitores" E PREENCHER O ARRAY -->
+                            <?php if ($monitores) : ?>
+                                <?php foreach ($monitores as $monitor) : ?>
+                                    <option value="<?php echo $monitor['id']; ?>" <?php if ($monitor['nome_completo'] == $curso['nome_monitor']) echo 'selected'; ?>><?php echo $monitor['nome_completo']; ?></option>
+                                <?php endforeach; ?>
+                                <?php else : ?>
+                                    <option value="">Nenhum registro encontrado</option>
+                                <?php endif; ?>
+                        </select>
+                        <input type="hidden" value="<?php echo $curso['nome_monitor']; ?>" name="curso['nome_monitor']" id="inputMonitor"/>                        
                     </div>
                   </div>
 
@@ -67,3 +78,12 @@
 </div>
 
 <?php include(FOOTER_TEMPLATE); ?>
+
+<script>
+    // Quando alterado a combo -> guarda o nome do monitor no input
+    function selectMonitorFunction()
+    {
+        var x = document.getElementById("selectMonitor").selectedIndex;
+        document.getElementById('inputMonitor').value=  document.getElementsByTagName("option")[x].text;
+    }
+</script>

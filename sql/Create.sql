@@ -19,7 +19,7 @@ CREATE TABLE alunos (
   celular varchar(25) NOT NULL,
   email varchar(255) NOT NULL,
   curso_atual varchar(255) NOT NULL,
-  monitor int(1) NOT NULL,
+  tipo varchar(25) NOT NULL,
   created datetime NOT NULL,
   modified datetime NOT NULL
 );

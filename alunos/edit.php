@@ -108,9 +108,16 @@
                   </div>
 
                   <div class="row">
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-10">
                       <label for="email">E-mail</label>
                       <input type="text" class="form-control" name="aluno['email']" style="text-transform: lowercase;" value="<?php echo $aluno['email']; ?>">
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="tipo">Tipo</label>
+                        <select class="form-control" name="aluno['tipo']" value="<?php echo $aluno['tipo']; ?>">
+                            <option <?php if ($aluno['tipo'] == 'Aluno') echo 'selected'; ?> value="Aluno">Aluno</option>
+                            <option <?php if ($aluno['tipo'] == 'Monitor') echo 'selected'; ?> value="Monitor">Monitor</option>
+                        </select>
                     </div>
                   </div>
 

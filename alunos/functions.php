@@ -26,7 +26,7 @@ function add() {
 
     $aluno = $_POST['aluno'];
     $aluno['modified'] = $aluno['created'] = $today->format("Y-m-d H:i:s");
-      
+    
     save('alunos', $aluno);
     header('location: index.php');
   }

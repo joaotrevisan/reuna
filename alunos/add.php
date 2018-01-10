@@ -37,18 +37,18 @@
                     <div class="form-group col-md-2">
                       <label for="signo">Signo</label>
                         <select class="form-control" name="aluno['signo']">
-                            <option value="Aquário">Aquário</option>
+                            <option value="Aquario">Aquário</option>
                             <option value="Peixes">Peixes</option>
-                            <option value="Áries">Áries</option>
+                            <option value="Aries">Áries</option>
                             <option value="Trouro">Touro</option>
-                            <option value="Gêmeos">Gêmeos</option>
-                            <option value="Câncer">Câncer</option>
-                            <option value="Leão">Leão</option>
+                            <option value="Gemeos">Gêmeos</option>
+                            <option value="Cancer">Câncer</option>
+                            <option value="Leao">Leão</option>
                             <option value="Virgem">Virgem</option>
                             <option value="Libra">Libra</option>
-                            <option value="Escorpião">Escorpião</option>
-                            <option value="Sagitário">Sagitário</option>
-                            <option value="Capricórnio">Capricórnio</option>
+                            <option value="Escorpiao">Escorpião</option>
+                            <option value="Sagitario">Sagitário</option>
+                            <option value="Capricornio">Capricórnio</option>
                         </select>
                     </div>
 
@@ -108,9 +108,17 @@
                   </div>
 
                   <div class="row">
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-10">
                       <label for="email">E-mail</label>
                       <input type="text" class="form-control" name="aluno['email']" style="text-transform: lowercase;">
+                    </div>
+                      
+                    <div class="form-group col-md-2">
+                      <label for="tipo">Tipo</label>
+                        <select class="form-control" name="aluno['tipo']">
+                            <option value="Aluno">Aluno</option>
+                            <option value="Monitor">Monitor</option>
+                        </select>
                     </div>
                   </div>
 

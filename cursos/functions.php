@@ -5,6 +5,7 @@ require_once(DBAPI);
 
 $cursos = null;
 $curso = null;
+$monitores = null;
 
 /**
  *  Listagem de Cursos
@@ -13,6 +14,15 @@ function index() {
 	global $cursos;
 	$cursos = find_all('cursos');
 }
+
+/**
+ *  Recupera todos os Monitores
+ */
+function listarMonitores() {
+  global $monitores;
+  $monitores = findMonitores();
+}
+
 
 /**
  *  Cadastro de Cursos
@@ -82,3 +92,5 @@ function delete($id = null) {
 
   header('location: index.php');
 }
+
+
