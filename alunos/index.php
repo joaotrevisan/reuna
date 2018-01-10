@@ -1,6 +1,10 @@
 <?php
     require_once('functions.php');
-    index();
+    
+    if(isset($_GET['nome']))
+        index($_GET['nome']);
+    else
+        index();
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
@@ -17,7 +21,7 @@
                 
                 <div class="row">
                     <div class="form-group col-md-10">
-                        <input type="text" class="form-control" name="pesquisarNome" id="pesquisarNome" value="" placeholder="pesquisar por nome..." oninput="pesquisarNomeOnInput()">
+                        <input type="text" class="form-control" name="pesquisarNome" id="pesquisarNome" value="<?php if(isset($_GET['nome'])) echo $_GET['nome']?> " placeholder="pesquisar por nome..." oninput="pesquisarNomeOnInput()">
                     </div>
                     <div class="form-group col-md-2">                      
                         <a href="" id="pesquisarLink" class="btn btn-sm btn-secondary"><i class="fas fa-search"></i> Pesquisar</a>

@@ -9,9 +9,13 @@ $aluno = null;
 /**
  *  Listagem de Alunos
  */
-function index() {
+function index($nome = null) {
 	global $alunos;
-	$alunos = find_all('alunos');
+	
+    if (isset ($nome))        
+        $alunos = findAlunosByNome(trim($nome));
+    else
+        $alunos = find_all('alunos');    
 }
 
 /**

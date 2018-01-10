@@ -202,7 +202,6 @@ function findUsuario( $usuario = null, $senha = null ){
   close_database($database);
 }
 
-
 /**
  *  Pesquisa todos os Monitores na tabela Alunos
  */
@@ -213,6 +212,31 @@ function findMonitores() {
 
 	try {
 	    $sql = "SELECT * FROM alunos WHERE tipo = 'Monitor'";
+	    $result = $database->query($sql);
+        
+        if ($result->num_rows > 0) {
+	      $found = $result->fetch_all(MYSQLI_ASSOC);
+        }
+        
+	} catch (Exception $e) {
+	  $_SESSION['message'] = $e->GetMessage();
+	  $_SESSION['type'] = 'danger';
+  }
+	
+	close_database($database);
+	return $found;
+}
+
+/**
+ *  Pesquisa todos os Alunos por nome
+ */
+function findAlunosByNome($nome = null) {
+  
+	$database = open_database();
+	$found = null;
+
+	try {
+	    $sql = "SELECT * FROM alunos WHERE nome_completo like '%".$nome."%'";
 	    $result = $database->query($sql);
         
         if ($result->num_rows > 0) {
