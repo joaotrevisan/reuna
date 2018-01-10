@@ -14,6 +14,17 @@
                 <h3>Alunos</h3>
             </div>
             <div class="card-body">
+                
+                <div class="row">
+                    <div class="form-group col-md-10">
+                        <input type="text" class="form-control" name="pesquisarNome" id="pesquisarNome" value="" placeholder="pesquisar por nome..." oninput="PesquisarNomeOnInput()">
+                    </div>
+                    <div class="form-group col-md-2">                      
+                        <a href="" id="pesquisarLink" class="btn btn-sm btn-secondary"><i class="fas fa-search"></i> Pesquisar</a>
+                    </div>                     
+                </div>
+                <hr>
+                
                 <div class="row">
                     <div class="col-sm">
                         <b>#</b>
@@ -92,3 +103,12 @@
 <?php include('modal.php'); ?>
 
 <?php include(FOOTER_TEMPLATE); ?>
+
+<script>
+   function PesquisarNomeOnInput()
+    {
+        var x = document.getElementById("pesquisarNome").value;
+        
+        document.getElementById("pesquisarLink").href="index.php?nome="+x;
+   }    
+</script>

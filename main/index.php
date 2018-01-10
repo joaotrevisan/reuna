@@ -9,5 +9,6 @@
 <ul class="list-group">
     <a href="../alunos/index.php" class="list-group-item list-group-item list-group-item-action">Alunos</a>
     <a href="../cursos/index.php"  class="list-group-item list-group-item-action">Cursos</a>
+    <a href="../matriculas/index.php"  class="list-group-item list-group-item-action">Matriculas</a>
     <a href="../main/logoff.php"  class="list-group-item list-group-item-action  list-group-item-danger">Sair</a>
 </ul>
