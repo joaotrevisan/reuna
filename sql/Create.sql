@@ -20,6 +20,7 @@ CREATE TABLE alunos (
   email varchar(255) NOT NULL,
   curso_atual varchar(255) NOT NULL,
   tipo varchar(25) NOT NULL,
+  indicacao varchar(255) NOT NULL,
   created datetime NOT NULL,
   modified datetime NOT NULL
 );
@@ -63,6 +64,8 @@ CREATE TABLE cursos (
   nome_monitor varchar(255) NOT NULL,
   id_monitor int(11) NOT NULL,
   estado varchar(100) NOT NULL,
+  data_inicio date NOT NULL,
+  data_termino date NOT NULL,
   created datetime NOT NULL,
   modified datetime NOT NULL
 );
@@ -81,9 +84,7 @@ DROP TABLE IF EXISTS matriculas;
 CREATE TABLE matriculas (
   id int(11) NOT NULL,
   id_aluno int(11) NOT NULL,
-  id_curso int(11) NOT NULL,
-  data_inicio date NOT NULL,
-  data_termino date NOT NULL,
+  id_curso int(11) NOT NULL,  
   estado varchar(100) NOT NULL,
   cadeira int(5) NOT NULL,
   created datetime NOT NULL,

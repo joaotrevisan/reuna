@@ -9,8 +9,7 @@
         <div class="card">
             <div class="card-header">
                 <center>
-                    <i class="fas fa-user-plus fa-2x"></i>
-                    <h3>Adicionar Aluno</h3>
+                    <h3 align="left"><i class="fas fa-graduation-cap fa-1x"></i>&nbsp;&nbsp;&nbsp;Alunos</h3>
                 </center>
             </div>
             <div class="card-body">
@@ -108,9 +107,14 @@
                   </div>
 
                   <div class="row">
-                    <div class="form-group col-md-10">
+                    <div class="form-group col-md-6">
                       <label for="email">E-mail</label>
                       <input type="text" class="form-control" name="aluno['email']" style="text-transform: lowercase;">
+                    </div>
+                      
+                    <div class="form-group col-md-4">
+                      <label for="indicacao">Indicação</label>
+                      <input type="text" class="form-control" name="aluno['indicacao']">
                     </div>
                       
                     <div class="form-group col-md-2">
@@ -121,16 +125,25 @@
                         </select>
                     </div>
                   </div>
-
+                    
+                   <!-- CURSO = ENTREVISTA ============================================= -->
+                   <input type="hidden" class="form-control" name="aluno['curso_atual']" value="ENTREVISTA">
+                    
+                   <br> <!-- colocar como padrao -->
                   <div id="actions" class="row">
                     <div class="col-md-12">
                       <button type="submit" class="btn btn-outline-success"><i class="fas fa-plus"></i> Adicionar</button>
                       <a href="index.php" class="btn btn-outline-danger">Cancelar</a>
                     </div>
                   </div>
+                    
                 </form>
             </div>
         </div>
+        
+      
+        
+        
     </div>
 </div>
 

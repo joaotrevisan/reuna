@@ -11,8 +11,7 @@
         <div class="card">
             <div class="card-header">
                 <center>
-                    <i class="fas fa-edit fa-2x"></i>
-                    <h3>Alterar Curso</h3>
+                    <h3 align="left"><i class="fas fa-calendar-alt fa-1x"></i>&nbsp;&nbsp;&nbsp;Cursos e Preceptorias</h3>
                 </center>
             </div>            
             <div class="card-body">
@@ -25,7 +24,7 @@
                     </div>
 
                     <div class="form-group col-md-2">
-                      <label for="letra">Letra</label>                      
+                      <label for="letra">Letra/Número</label>                      
                       <input type="text" class="form-control" name="curso['letra']" style="text-transform: uppercase;" value="<?php echo $curso['letra']; ?>">
                     </div>
 
@@ -46,7 +45,7 @@
                   </div>
 
                    <div class="row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                       <label for="estado">Estado</label>
                         <select class="form-control" name="curso['estado']" value="<?php echo $curso['estado']; ?>">                        
                             <option <?php if ($curso['estado'] == 'Andamento') echo 'selected'; ?> value="Andamento">Andamento</option>
@@ -61,10 +60,20 @@
                             <option <?php if ($curso['tipo'] == 'Curso') echo 'selected'; ?> value="Curso">Curso</option>
                             <option <?php if ($curso['tipo'] == 'Preceptoria') echo 'selected'; ?> value="Preceptoria">Preceptoria</option>                            
                         </select>
-                    </div>                   
+                    </div> 
+                       
+                    <div class="form-group col-md-3">
+                      <label for="data_inicio">Início</label>
+                      <input type="date" class="form-control" name="$curso['data_inicio']" value="<?php echo $curso['data_inicio']; ?>">
+                    </div>
+                       
+                    <div class="form-group col-md-3">
+                      <label for="data_termino">Término</label>
+                      <input type="date" class="form-control" name="$curso['data_termino']" value="<?php echo $curso['data_termino']; ?>">
+                    </div>
                   </div>
 
-
+                  <br> <!-- colocar como padrao -->
                   <div id="actions" class="row">
                     <div class="col-md-12">
                       <button type="submit" class="btn btn-outline-primary"><i class="fas fa-edit"></i> Salvar</button>

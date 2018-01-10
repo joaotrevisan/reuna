@@ -14,8 +14,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <i class="fas fa-users fa-2x"></i>
-                <h3>Alunos</h3>
+                <h3 align="left"><i class="fas fa-graduation-cap fa-1x"></i>&nbsp;&nbsp;&nbsp;Alunos</h3>
             </div>
             <div class="card-body">
                 
@@ -67,7 +66,7 @@
                                 <?php echo $aluno['nome_completo']; ?>
                             </div>
                             <div class="col">
-                                <?php echo $aluno['signo']; ?>
+                                <?php echo $aluno['curso_atual']; ?>
                             </div>
                             <div class="col">
                                 <?php echo $aluno['telefone']; ?>

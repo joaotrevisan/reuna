@@ -4,12 +4,16 @@ require_once('../config.php');
 require_once(DBAPI);
 
 $alunos = null;
-$aluno = null;
+$cursos = null;
 
 /**
  *  Listagem de Alunos
  */
-function index() {
+function index($idCursoAtual = null) {
 	global $alunos;
-	$alunos = find_all('alunos');
+	if(isset($idCursoAtual))
+        $alunos = findAlunosByCurso($idCursoAtual);
+    
+    global $cursos;
+	$cursos = array_reverse(find_all('cursos'));
 }

@@ -10,8 +10,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <i class="fas fa-book fa-2x"></i>
-                <h3>Cursos</h3>
+                <h3 align="left"><i class="fas fa-calendar-alt fa-1x"></i>&nbsp;&nbsp;&nbsp;Cursos e Preceptorias</h3>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -49,7 +48,7 @@
                                 <?php echo $curso['id']; ?>
                             </div>
                             <div class="col-4" align="left">
-                                <?php echo $curso['nome'] . " " . $curso['letra']; ?>
+                                <?php echo $curso['nome'] . " - " . $curso['letra']; ?>
                             </div>
                             <div class="col">
                                 <?php echo $curso['nome_monitor']; ?>

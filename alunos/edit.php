@@ -10,8 +10,7 @@
         <div class="card">
             <div class="card-header">
                 <center>
-                    <i class="fas fa-edit fa-2x"></i>
-                    <h3>Alterar Aluno</h3>
+                    <h3 align="left"><i class="fas fa-graduation-cap fa-1x"></i>&nbsp;&nbsp;&nbsp;Alunos</h3>
                 </center>
             </div>
             <div class="card-body">
@@ -108,9 +107,13 @@
                   </div>
 
                   <div class="row">
-                    <div class="form-group col-md-10">
+                    <div class="form-group col-md-6">
                       <label for="email">E-mail</label>
                       <input type="text" class="form-control" name="aluno['email']" style="text-transform: lowercase;" value="<?php echo $aluno['email']; ?>">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="indicacao">Indicação</label>
+                      <input type="text" class="form-control" name="aluno['indicacao']" value="<?php echo $aluno['indicacao']; ?>">
                     </div>
                     <div class="form-group col-md-2">
                       <label for="tipo">Tipo</label>
@@ -120,7 +123,7 @@
                         </select>
                     </div>
                   </div>
-
+                    <br> <!-- colocar como padrao -->
                   <div id="actions" class="row">
                     <div class="col-md-12">
                       <button type="submit" class="btn btn-outline-primary"><i class="fas fa-edit"></i> Salvar</button>

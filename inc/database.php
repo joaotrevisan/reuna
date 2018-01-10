@@ -79,6 +79,7 @@ function find_all($table) {
 function save($table = null, $data = null) {
 
   $database = open_database();
+  $last_id = 0;
 
   $columns = null;
   $values = null;
@@ -98,6 +99,7 @@ function save($table = null, $data = null) {
 
   try {
     $database->query($sql);
+    $last_id = $database->insert_id;     
 
     $_SESSION['message'] = 'Registro cadastrado com sucesso.';
     $_SESSION['type'] = 'success';
@@ -109,6 +111,7 @@ function save($table = null, $data = null) {
   } 
 
   close_database($database);
+  return $last_id;
 }
 
 
@@ -180,7 +183,28 @@ function remove( $table = null, $id = null ) {
 // MÉTODOS CUSTOMIZADOS
 //*************************************************************
 
+/**
+ *  Ao criar um novo aluno, cria o registro na matricula com o curso entrevista
+ */
+function criarMatriculaComoEntrevista($id_aluno = null){
+    
+    $database = open_database();
+    
+    try{
+        if(isset($id_aluno)){
+            $sql = "INSERT INTO matriculas (id, id_aluno, id_curso, estado, cadeira, created, modified) VALUES (NULL, ".$id_aluno.", 1, 'Inscrito', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
+            echo "SQLLLLL: ".$sql;
+            $database->query($sql);
+        }
+    }
+     catch (Exception $e){
+        $_SESSION['message'] = $e->GetMessage();
+        $_SESSION['type'] = 'danger';
+    }    
+}
+
 function findUsuario( $usuario = null, $senha = null ){
+    
     $database = open_database();
     try{
         $sql = "SELECT * FROM usuarios WHERE usuario='".$usuario."' AND senha='".$senha."'";
@@ -237,6 +261,31 @@ function findAlunosByNome($nome = null) {
 
 	try {
 	    $sql = "SELECT * FROM alunos WHERE nome_completo like '%".$nome."%'";
+	    $result = $database->query($sql);
+        
+        if ($result->num_rows > 0) {
+	      $found = $result->fetch_all(MYSQLI_ASSOC);
+        }
+        
+	} catch (Exception $e) {
+	  $_SESSION['message'] = $e->GetMessage();
+	  $_SESSION['type'] = 'danger';
+  }
+	
+	close_database($database);
+	return $found;
+}
+
+/**
+ *  Pesquisa todos os Alunos por curso
+ */
+function findAlunosByCurso($idCurso = null) {
+  
+	$database = open_database();
+	$found = null;
+
+	try {
+	    $sql = "SELECT * FROM alunos as a inner join matriculas as m on a.id = m.id_aluno where m.id_curso = ".$idCurso." order by a.nome_completo";
 	    $result = $database->query($sql);
         
         if ($result->num_rows > 0) {

@@ -29,8 +29,7 @@
                 <div class="card">
                     <div class="card-header">
                         <center>
-                            <i class="fas fa-user-plus fa-2x"></i>
-                            <h3>Cadastrar Usuário</h3>
+                            <h3 align="left"><i class="fas fa-user fa-1x"></i>&nbsp;&nbsp;&nbsp;Usuário</h3>
                         </center>
                     </div>
                     <div class="card-body">

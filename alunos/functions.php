@@ -15,7 +15,12 @@ function index($nome = null) {
     if (isset ($nome))        
         $alunos = findAlunosByNome(trim($nome));
     else
-        $alunos = find_all('alunos');    
+    {
+        if (count(find_all('alunos')) > 0){
+            $alunos = array_reverse(find_all('alunos'));        
+        }
+    }
+        
 }
 
 /**
@@ -30,8 +35,11 @@ function add() {
 
     $aluno = $_POST['aluno'];
     $aluno['modified'] = $aluno['created'] = $today->format("Y-m-d H:i:s");
+    $lastId = save('alunos', $aluno);
+      
+    //Criar a matricula no curso "entrevista"
+    criarMatriculaComoEntrevista($lastId);     
     
-    save('alunos', $aluno);
     header('location: index.php');
   }
 }
