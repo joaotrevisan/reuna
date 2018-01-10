@@ -58,8 +58,8 @@
                     <div class="form-group col-md-3">
                       <label for="tipó">Tipo</label>                        
                         <select class="form-control" name="curso['tipo']" value="<?php echo $curso['tipo']; ?>">  
-                            <option value="Curso">Curso</option>
-                            <option value="Preceptoria">Preceptoria</option>                            
+                            <option <?php if ($curso['tipo'] == 'Curso') echo 'selected'; ?> value="Curso">Curso</option>
+                            <option <?php if ($curso['tipo'] == 'Preceptoria') echo 'selected'; ?> value="Preceptoria">Preceptoria</option>                            
                         </select>
                     </div>                   
                   </div>
