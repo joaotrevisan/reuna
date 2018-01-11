@@ -44,8 +44,6 @@
                             </a>
                         </div>
                     </div>
-                    <ul class="list-group">
-                    </ul>
                 </div>
             </div>
         </div>

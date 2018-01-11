@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="form-group col-md-5" align="left">
                           <label for="estado_civil">Curso Atual</label>
-                            <select class="form-control selectpicker" name="$curso['id']" id="cursoAtual" onchange="cursoAtualOnChange()" >                            
+                            <select class="form-control" name="$curso['id']" id="cursoAtual" onchange="cursoAtualOnChange()" >                            
                                 <?php if ($cursos) : ?>
                                     <?php foreach ($cursos as $curso) : ?>                                    
                                         <!-- monta o option de curso -->
@@ -78,7 +78,7 @@
                             <b>Aluno</b>
                         </div> 
                         <div class="col-3"  align="left">
-                            <b>Situação Curso Atual</b>
+                            <b id="cursoAtualSit">Situação Curso Atual</b>
                         </div>
                         <div class="col-2"  align="left">
                             <b>Curso Inscrito</b>
@@ -128,6 +128,9 @@
 <?php include(FOOTER_TEMPLATE); ?>
 
 <script>
+    
+    var cmbCursoAtual = document.getElementById("cursoAtual");
+    document.getElementById("cursoAtualSit").innerHTML = cmbCursoAtual.options[cmbCursoAtual.selectedIndex].text;
 
     function cursoAtualOnChange(){
         
