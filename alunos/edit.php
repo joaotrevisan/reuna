@@ -2,6 +2,7 @@
   require_once('functions.php'); 
   require_once('../constants.php');
   edit();
+  listaMatriculasAluno();
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
@@ -134,6 +135,134 @@
                 </form>
             </div>
         </div>
+        
+        <br><br>
+            <!-- CURSOS QUE O ALUNO JA SE MATRICULOU -->
+            <div class="card">
+                <div class="card-header">
+                    <center>
+                        <h5 align="left"><i class="fas fa-list fa-1x"></i>&nbsp;&nbsp;&nbsp;Inscrições</h5> 
+                    </center>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                      <!-- area de campos do form -->
+                        
+                        <div class="row">
+                            <div class="form-group col-md-2">
+                              <label for="x">Data</label>                              
+                            </div>
+                            <div class="form-group col-md-2">
+                              <label for="x">Curso</label>                              
+                            </div>
+                            <div class="form-group col-md-1">
+                              <label for="x">Situação</label>                              
+                            </div>
+                            <div class="form-group col-md-1" align="center">
+                              <label for="x">Cadeira</label>                              
+                            </div>
+                            
+                            <div class="col-md-5">
+                                <div class="row" align="center">
+                                    <div class="form-group col-md-1">
+                                      <label for="x">SEG</label>                              
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                      <label for="x">TER</label>                              
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                      <label for="x">QUA</label>                              
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                      <label for="x">QUI</label>                              
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                      <label for="x">SEX</label>                              
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                      <label for="x">SAB</label>                              
+                                    </div>
+                                    <div class="form-group col-md-1">
+                                      <label for="x">DOM</label>                              
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-1">
+                              <label for="x"></label>                              
+                            </div>
+                            
+                        </div>
+                        
+                      <?php if ($matriculas) : ?>
+                        <?php foreach ($matriculas as $m) : ?>
+                        <hr>
+                          <div class="row">                                                            
+                            <div class="form-group col-md-2">
+                              <label for="x"><?php echo $m['data_inscricao']; ?></label>                              
+                            </div>                              
+                            <div class="form-group col-md-2">
+                              <label for="x"><?php echo $m['nome_curso']; ?></label>                              
+                            </div>
+                            <div class="form-group col-md-1">
+                              <label for="x"><?php echo $m['estado']; ?></label>                              
+                            </div>
+                            <div class="form-group col-md-1" align="center">
+                              <label for="x"><?php echo $m['cadeira']; ?></label>                              
+                            </div>   
+                            
+                              <div class="col-md-5">
+                                <div class="row" align="center">
+                                    <div class="form-group col-md-1">
+                                      <label for="x">-</label>                              
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                      <label for="x">-</label>                              
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                      <label for="x">X</label>                              
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                      <label for="x">X</label>                              
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                      <label for="x">-</label>                              
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                      <label for="x">-</label>                              
+                                    </div>
+                                    <div class="form-group col-md-1">
+                                      <label for="x">X</label>                              
+                                    </div> 
+                                  </div>
+                              </div>
+                              
+                              <div class="col">
+                                <div class="btn-group" role="group">
+                                    <a href="edit.php?id=<?php echo $curso['id']; ?>" class="btn btn-sm btn-outline-primary" >
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </div>
+                              </div>                                                       
+                              
+                          </div>
+                        <?php endforeach; ?>
+                        <?php else : ?>                            
+                            <div class="col">
+                                Nenhum registro encontrado.
+                            </div>                            
+                        <?php endif; ?>
+
+                      <br> <!-- colocar como padrao -->
+                      <div id="actions" class="row">
+                        <div class="col-md-12">
+                          <button type="submit" class="btn btn-outline-primary"><i class="fas fa-exchange-alt"></i> Transferir de Curso</button>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+            </div>
+        
+        
     </div>
 </div>
 

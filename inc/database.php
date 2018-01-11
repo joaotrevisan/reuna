@@ -365,6 +365,38 @@ function findAlunosByCurso($idCurso = null) {
 	return $found;
 }
 
+
+/**
+ *  Pesquisa todos as matriculas de um aluno
+ */
+function findMatriculasByAluno($idAluno = null) {
+  
+    $database = open_database();
+	$found = null;
+
+	try {
+	    $sql = "SELECT a.id as id_aluno, m.id as id_matricula, c.nome as nome_curso, m.estado, m.cadeira, m.dias_incompletos, DATE_FORMAT(c.data_inicio, '%d/%m/%Y')  as data_inscricao
+                FROM alunos as a 
+                inner join matriculas as m on a.id = m.id_aluno 
+                inner join cursos as c on c.id = m.id_curso
+                WHERE a.id = ".$idAluno;
+        
+        $result = $database->query($sql);
+        
+        if ($result->num_rows > 0) {
+	      $found = $result->fetch_all(MYSQLI_ASSOC);
+        }
+        
+	} catch (Exception $e) {
+	  $_SESSION['message'] = $e->GetMessage();
+	  $_SESSION['type'] = 'danger';
+  }
+	
+	close_database($database);
+	return $found;
+}
+
+
 /**
  *  Apaga matricula do anulo com curso 'ALUNO NOVO' = id_curso = 1
  */

@@ -11,7 +11,7 @@ $aluno = null;
  */
 function index($nome = null) {
 	global $alunos;
-	
+    
     if (isset ($nome))        
         $alunos = findAlunosByNome(trim($nome));
     else
@@ -20,7 +20,6 @@ function index($nome = null) {
             $alunos = array_reverse(find_all('alunos'));        
         }
     }
-        
 }
 
 /**
@@ -94,3 +93,16 @@ function delete($id = null) {
 
   header('location: index.php');
 }
+
+
+/**
+ *  Recupera todos os cursos que o aluno ja foi matriculado
+ */
+function listaMatriculasAluno(){
+    global $matriculas;
+    
+    if (isset($_GET['id']))
+        $matriculas = findMatriculasByAluno($_GET['id']);      
+}
+
+
