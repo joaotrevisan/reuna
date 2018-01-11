@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-header">
                 <center>
-                    <h3 align="left"><i class="fas fa-calendar-alt fa-1x"></i>&nbsp;&nbsp;&nbsp;Cursos e Preceptorias</h3>
+                    <h3 align="left"><i class="fas fa-calendar-alt fa-1x"></i>&nbsp;&nbsp;&nbsp;Curso ou Preceptoria</h3>
                 </center>
             </div>
             <div class="card-body">
