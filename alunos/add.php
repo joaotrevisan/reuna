@@ -108,12 +108,12 @@
                   </div>
 
                   <div class="row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                       <label for="email">E-mail</label>
                       <input type="text" class="form-control" name="aluno['email']" style="text-transform: lowercase;">
                     </div>
                       
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                       <label for="indicacao">Indicação</label>
                       <input type="text" class="form-control" name="aluno['indicacao']">
                     </div>
@@ -124,6 +124,10 @@
                             <option value="<?= ALUNO_TIPO_ALUNO ?>"><?= ALUNO_TIPO_ALUNO ?></option>
                             <option value="<?= ALUNO_TIPO_MONITOR ?>"><?= ALUNO_TIPO_MONITOR ?></option>
                         </select>
+                    </div>
+                    <div class="form-group col-md-1.5">
+                        <label for="data_entrevista">Data de entrevista</label>
+                        <input type="date" class="form-control" name="aluno['data_entrevista']">
                     </div>
                   </div>
                     
