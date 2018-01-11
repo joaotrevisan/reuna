@@ -38,7 +38,7 @@ function add() {
     $lastId = save('alunos', $aluno);
       
     //Criar a matricula no curso "entrevista"
-    criarMatriculaComoEntrevista($lastId);     
+    criarMatriculaComoNovoAluno($lastId);     
     
     header('location: index.php');
   }

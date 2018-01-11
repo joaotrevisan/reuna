@@ -11,8 +11,10 @@ $monitores = null;
  *  Listagem de Cursos
  */
 function index() {
-	global $cursos;
-	$cursos = find_all('cursos');
+	global $cursos;	
+    if (count(find_all('cursos')) > 0){
+        $cursos = array_reverse(find_all('cursos'));        
+    }
 }
 
 /**

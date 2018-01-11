@@ -67,35 +67,48 @@
                 
                 <hr>
                 
-                    <div class="row">
-                        <div class="col-3">
+                    <div class="row">                          
+                        <div class="col-2">
                             <b>Seleção</b>
-                        </div>        
-                        <div class="col-5" align="left">
+                        </div>     
+                        <div class="col-1" align="left">
+                            <b>#</b>
+                        </div> 
+                        <div class="col-4" align="left">
                             <b>Aluno</b>
-                        </div>            
-                        <div class="col-4"  align="left">
-                            <b>Curso Atual</b>
-                        </div>                                                   
+                        </div> 
+                        <div class="col-3"  align="left">
+                            <b>Situação Curso Atual</b>
+                        </div>
+                        <div class="col-2"  align="left">
+                            <b>Curso Inscrito</b>
+                        </div>                                             
                     </div>
                     <?php if ($alunos) : ?>
                         <?php foreach ($alunos as $aluno) : ?>
                             <hr>
-                            <div class="row">
-                                <div class="col-3">
+                            <div class="row">                                
+                                <div class="col-2">
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                         <label class="btn btn-outline-success active">
                                             <input type="checkbox" checked autocomplete="off" name="CHECK_ALUNO" id="<?php echo $aluno['id']; ?>"> <i class="fas fa-check"></i>
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-5" align="left">
-                                    <?php echo $aluno['nome_completo']; ?>
+                                <div class="col-1" align="left">
+                                    <?php echo $aluno['id']; ?>
                                 </div>
                                 <div class="col-4" align="left">
-                                    <?php echo $aluno['signo']; ?>
+                                    <?php echo $aluno['nome_completo']; ?>
                                 </div>
+                                <div class="col-3" align="left">
+                                    <?php echo $aluno['estado']; ?>
+                                </div>
+                                <div class="col-2" align="left">
+                                    <?php echo $aluno['curso_atual']; ?>
+                                </div>                                
                             </div>
+                            
                         <?php endforeach; ?>
                             <?php else : ?>
                             <hr>
@@ -128,20 +141,43 @@
     function gerarListaAlunosOnSubmit(){
         
         var checkedBoxes = getCheckedBoxes("CHECK_ALUNO");
-        var listIds = new Array;
+        var idCursoAtual = document.getElementById("cursoAtual").value;
+        var idCursoDestino = document.getElementById("cursoDestino").value;
+        var nomeCursoAtual = document.getElementById("cursoAtual").options[document.getElementById("cursoAtual").selectedIndex].text;
+        var nomeCursoDestino = document.getElementById("cursoDestino").options[document.getElementById("cursoDestino").selectedIndex].text;
+        var listIds = "";
         
-        for (var i=0; i<checkedBoxes.length; i++) {            
-            listIds.push(checkedBoxes[i].id);  
+        if(checkedBoxes == null)
+        {
+            alert("Nenhum registro selecionado");
+            event.preventDefault();
+        } 
+        else if (idCursoAtual == idCursoDestino)
+        {
+            alert("O 'Curso Destino' deve ser diferente do 'Curso Atual'");
+            event.preventDefault();
         }
-        
-        //Modifica o submit do form passando os ids selecionados
-        
-        document.getElementById("formMatricula").action="register.php?".listIds;
-        
-        event.preventDefault();
+        else
+        {
+            //Prepara a lista de id dos checks selecionados
+            
+            for (var i=0; i<checkedBoxes.length; i++) {            
+                listIds += checkedBoxes[i].id;
+                
+                if (i<checkedBoxes.length - 1)
+                    listIds += ",";
+            }
+
+            //Modifica o submit do form passando os ids selecionados
+            
+            var parameter = "idCursoAtual=" + idCursoAtual + "&nomeCursoAtual=" + nomeCursoAtual +"&idCursoDestino=" + idCursoDestino + "&nomeCursoDestino=" + nomeCursoDestino + "&idLista=" + listIds;
+
+            document.getElementById("formMatricula").action = "register.php?" + parameter;        
+        }        
     }
     
-    // Pass the checkbox name to the function
+    // Recupera todos os CHECKs selecionados
+    
     function getCheckedBoxes(chkboxName) {
       var checkboxes = document.getElementsByName(chkboxName);
       var checkboxesChecked = [];

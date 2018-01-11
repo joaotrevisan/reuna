@@ -126,8 +126,8 @@
                     </div>
                   </div>
                     
-                   <!-- CURSO = ENTREVISTA ============================================= -->
-                   <input type="hidden" class="form-control" name="aluno['curso_atual']" value="ENTREVISTA">
+                   <!-- CURSO = ALUNO_NOVO ============================================= -->
+                   <input type="hidden" class="form-control" name="aluno['curso_atual']" value="ALUNO_NOVO">
                     
                    <br> <!-- colocar como padrao -->
                   <div id="actions" class="row">

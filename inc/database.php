@@ -184,16 +184,38 @@ function remove( $table = null, $id = null ) {
 //*************************************************************
 
 /**
- *  Ao criar um novo aluno, cria o registro na matricula com o curso entrevista
+ *  Insere uma nova matricula na base
  */
-function criarMatriculaComoEntrevista($id_aluno = null){
+function criarMatricula($id_aluno = null, $id_curso = null){
+    
+    $database = open_database();
+    
+    $estado = "Inscrito";
+    $cadeira = 0;
+    $created = $modified = date_create('now', new DateTimeZone('America/Sao_Paulo'))->format("Y-m-d H:i:s");
+    
+    try{
+        $sql = "INSERT INTO matriculas (id, id_aluno, id_curso, estado, cadeira, created, modified) VALUES (NULL, ".$id_aluno.", ".$id_curso.", '".$estado."', ".$cadeira.", '".$created."', '".$modified."');";  
+        $database->query($sql);
+    }
+     catch (Exception $e){
+        $_SESSION['message'] = $e->GetMessage();
+        $_SESSION['type'] = 'danger';
+    }    
+}
+
+
+/**
+ *  Ao criar um novo aluno, cria o registro na matricula com o curso "NOVO_ALUNO"
+ */
+function criarMatriculaComoNovoAluno($id_aluno = null){
     
     $database = open_database();
     
     try{
         if(isset($id_aluno)){
             $sql = "INSERT INTO matriculas (id, id_aluno, id_curso, estado, cadeira, created, modified) VALUES (NULL, ".$id_aluno.", 1, 'Inscrito', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
-            echo "SQLLLLL: ".$sql;
+            echo $sql;
             $database->query($sql);
         }
     }
@@ -202,6 +224,48 @@ function criarMatriculaComoEntrevista($id_aluno = null){
         $_SESSION['type'] = 'danger';
     }    
 }
+
+
+/**
+ *  Atualiza o status da matricula do aluno
+ */
+function atualizarEstadoMatricula($idAluno = null, $idCursoDestino = null, $status = null){
+    
+    $database = open_database();
+    
+    $modified = date_create('now', new DateTimeZone('America/Sao_Paulo'))->format("Y-m-d H:i:s");
+    
+    try{        
+        $sql = "UPDATE matriculas SET estado = '".$status."', modified = '".$modified."' WHERE id_Aluno = ".$idAluno." AND id_Curso = ".$idCursoDestino.";";
+        $database->query($sql);
+        
+    }
+     catch (Exception $e){
+        $_SESSION['message'] = $e->GetMessage();
+        $_SESSION['type'] = 'danger';
+    }    
+}
+
+/**
+ *  Atualiza o curso atual do aluno
+ */
+function atualizarCursoAtualAluno($idAluno = null, $cursoAtual){
+    
+    $database = open_database();
+    
+    $modified = date_create('now', new DateTimeZone('America/Sao_Paulo'))->format("Y-m-d H:i:s");
+    
+    try{        
+        $sql = "UPDATE alunos SET curso_atual = '".$cursoAtual."', modified = '".$modified."' WHERE id = ".$idAluno.";";
+        $database->query($sql);
+        
+    }
+     catch (Exception $e){
+        $_SESSION['message'] = $e->GetMessage();
+        $_SESSION['type'] = 'danger';
+    }    
+}
+
 
 function findUsuario( $usuario = null, $senha = null ){
     
@@ -285,7 +349,7 @@ function findAlunosByCurso($idCurso = null) {
 	$found = null;
 
 	try {
-	    $sql = "SELECT * FROM alunos as a inner join matriculas as m on a.id = m.id_aluno where m.id_curso = ".$idCurso." order by a.nome_completo";
+	    $sql = "SELECT a.id, a.nome_completo, a.curso_atual, m.estado FROM alunos as a inner join matriculas as m on a.id = m.id_aluno where m.id_curso = ".$idCurso." order by a.nome_completo";
 	    $result = $database->query($sql);
         
         if ($result->num_rows > 0) {
@@ -300,3 +364,23 @@ function findAlunosByCurso($idCurso = null) {
 	close_database($database);
 	return $found;
 }
+
+/**
+ *  Apaga matricula do anulo com curso 'ALUNO NOVO' = id_curso = 1
+ */
+function excluirMatriculaAlunoNovo($idAluno = null){
+    
+    $database = open_database();
+    
+    try{        
+        $sql = "DELETE FROM matriculas WHERE id_aluno = ".$idAluno." AND id_curso = 1;";
+        echo $sql;
+        $database->query($sql);
+        
+    }
+     catch (Exception $e){
+        $_SESSION['message'] = $e->GetMessage();
+        $_SESSION['type'] = 'danger';
+    }    
+}
+
