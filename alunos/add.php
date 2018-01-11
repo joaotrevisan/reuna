@@ -1,5 +1,6 @@
 <?php 
   require_once('functions.php'); 
+  require_once('../constants.php'); 
   add();
 ?>
 
@@ -36,29 +37,29 @@
                     <div class="form-group col-md-2">
                       <label for="signo">Signo</label>
                         <select class="form-control" name="aluno['signo']">
-                            <option value="Aquario">Aquário</option>
-                            <option value="Peixes">Peixes</option>
-                            <option value="Aries">Áries</option>
-                            <option value="Trouro">Touro</option>
-                            <option value="Gemeos">Gêmeos</option>
-                            <option value="Cancer">Câncer</option>
-                            <option value="Leao">Leão</option>
-                            <option value="Virgem">Virgem</option>
-                            <option value="Libra">Libra</option>
-                            <option value="Escorpiao">Escorpião</option>
-                            <option value="Sagitario">Sagitário</option>
-                            <option value="Capricornio">Capricórnio</option>
+                            <option value="<?= SIGNO_AQUARIO ?>"><?= SIGNO_AQUARIO ?></option>
+                            <option value="<?= SIGNO_PEIXES ?>"><?= SIGNO_PEIXES ?></option>
+                            <option value="<?= SIGNO_ARIES ?>"><?= SIGNO_ARIES ?></option>
+                            <option value="<?= SIGNO_TOURO ?>"><?= SIGNO_TOURO ?></option>
+                            <option value="<?= SIGNO_GEMEOS ?>"><?= SIGNO_GEMEOS ?></option>
+                            <option value="<?= SIGNO_CANCER ?>"><?= SIGNO_CANCER ?></option>
+                            <option value="<?= SIGNO_LEAO ?>"><?= SIGNO_LEAO ?></option>
+                            <option value="<?= SIGNO_VIRGEM ?>"><?= SIGNO_VIRGEM ?></option>
+                            <option value="<?= SIGNO_LIBRA ?>"><?= SIGNO_LIBRA ?></option>
+                            <option value="<?= SIGNO_ESCORPIAO ?>"><?= SIGNO_ESCORPIAO ?></option>
+                            <option value="<?= SIGNO_SAGITARIO ?>"><?= SIGNO_SAGITARIO ?></option>
+                            <option value="<?= SIGNO_CAPRICORNIO ?>"><?= SIGNO_CAPRICORNIO ?></option>
                         </select>
                     </div>
 
                     <div class="form-group col-md-3">
                       <label for="estado_civil">Estado Civil</label>
                         <select class="form-control" name="aluno['estado_civil']">
-                            <option value="Solteiro(a)">Solteiro(a)</option>
-                            <option value="Casado(a)">Casado(a)</option>
-                            <option value="Divorciado(a)">Divorciado(a)</option>
-                            <option value="Viúvo(a)">Viúvo(a)</option>
-                            <option value="Separado(a)">Separado(a)</option>
+                            <option value="<?= ESTADO_CIVIL_SOLTEIRO ?>"><?= ESTADO_CIVIL_SOLTEIRO ?></option>
+                            <option value="<?= ESTADO_CIVIL_CASADO ?>"><?= ESTADO_CIVIL_CASADO ?></option>
+                            <option value="<?= ESTADO_CIVIL_DIVORCIADO ?>"><?= ESTADO_CIVIL_DIVORCIADO ?></option>
+                            <option value="<?= ESTADO_CIVIL_VIUVO ?>"><?= ESTADO_CIVIL_VIUVO ?></option>
+                            <option value="<?= ESTADO_CIVIL_SEPARADO ?>"><?= ESTADO_CIVIL_SEPARADO ?></option>
                         </select>
                     </div>
 
@@ -120,8 +121,8 @@
                     <div class="form-group col-md-2">
                       <label for="tipo">Tipo</label>
                         <select class="form-control" name="aluno['tipo']">
-                            <option value="Aluno">Aluno</option>
-                            <option value="Monitor">Monitor</option>
+                            <option value="<?= ALUNO_TIPO_ALUNO ?>"><?= ALUNO_TIPO_ALUNO ?></option>
+                            <option value="<?= ALUNO_TIPO_MONITOR ?>"><?= ALUNO_TIPO_MONITOR ?></option>
                         </select>
                     </div>
                   </div>

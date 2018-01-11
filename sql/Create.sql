@@ -21,6 +21,7 @@ CREATE TABLE alunos (
   curso_atual varchar(255) NOT NULL,
   tipo varchar(25) NOT NULL,
   indicacao varchar(255) NOT NULL,
+  data_entrevista date NOT NULL,
   created datetime NOT NULL,
   modified datetime NOT NULL
 );
@@ -86,6 +87,7 @@ CREATE TABLE matriculas (
   id_aluno int(11) NOT NULL,
   id_curso int(11) NOT NULL,  
   estado varchar(100) NOT NULL,
+  dias_incompletos varchar(255) NOT NULL,
   cadeira int(5) NOT NULL,
   created datetime NOT NULL,
   modified datetime NOT NULL

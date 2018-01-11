@@ -349,7 +349,7 @@ function findAlunosByCurso($idCurso = null) {
 	$found = null;
 
 	try {
-	    $sql = "SELECT a.id, a.nome_completo, a.curso_atual, m.estado FROM alunos as a inner join matriculas as m on a.id = m.id_aluno where m.id_curso = ".$idCurso." order by a.nome_completo";
+	    $sql = "SELECT a.id, a.nome_completo, a.curso_atual, m.estado FROM alunos as a inner join matriculas as m on a.id = m.id_aluno where m.id_curso = ".$idCurso." order by m.estado, a.nome_completo";
 	    $result = $database->query($sql);
         
         if ($result->num_rows > 0) {

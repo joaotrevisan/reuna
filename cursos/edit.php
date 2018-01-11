@@ -1,5 +1,6 @@
 <?php 
   require_once('functions.php'); 
+  require_once('../constants.php'); 
   edit();
   listarMonitores();
 ?>
@@ -48,17 +49,17 @@
                     <div class="form-group col-md-3">
                       <label for="estado">Estado</label>
                         <select class="form-control" name="curso['estado']" value="<?php echo $curso['estado']; ?>">                        
-                            <option <?php if ($curso['estado'] == 'Andamento') echo 'selected'; ?> value="Andamento">Andamento</option>
-                            <option <?php if ($curso['estado'] == 'Cancelado') echo 'selected'; ?> value="Cancelado">Cancelado</option>
-                            <option <?php if ($curso['estado'] == 'Concluido') echo 'selected'; ?> value="Concluido">Concluído</option>
+                            <option <?php if ($curso['estado'] == CURSO_ESTADO_ANDAMENTO) echo 'selected'; ?> value="<?= CURSO_ESTADO_ANDAMENTO ?>"><?= CURSO_ESTADO_ANDAMENTO ?></option>
+                            <option <?php if ($curso['estado'] == CURSO_ESTADO_CANCELADO) echo 'selected'; ?> value="<?= CURSO_ESTADO_CANCELADO ?>">"><?= CURSO_ESTADO_CANCELADO ?>"></option>
+                            <option <?php if ($curso['estado'] == CURSO_ESTADO_CONCLUIDO) echo 'selected'; ?> value="<?= CURSO_ESTADO_CONCLUIDO ?>"><?= CURSO_ESTADO_CONCLUIDO ?></option>
                         </select>
                     </div>
 
                     <div class="form-group col-md-3">
                       <label for="tipó">Tipo</label>                        
                         <select class="form-control" name="curso['tipo']" value="<?php echo $curso['tipo']; ?>">  
-                            <option <?php if ($curso['tipo'] == 'Curso') echo 'selected'; ?> value="Curso">Curso</option>
-                            <option <?php if ($curso['tipo'] == 'Preceptoria') echo 'selected'; ?> value="Preceptoria">Preceptoria</option>                            
+                            <option <?php if ($curso['tipo'] == CURSO_TIPO_CURSO) echo 'selected'; ?> value="<?= CURSO_TIPO_CURSO ?>"><?= CURSO_TIPO_CURSO ?></option>
+                            <option <?php if ($curso['tipo'] == CURSO_TIPO_PRECEPTORIA) echo 'selected'; ?> value="<?= CURSO_TIPO_PRECEPTORIA ?>"><?= CURSO_TIPO_PRECEPTORIA ?></option>                            
                         </select>
                     </div> 
                        

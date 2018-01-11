@@ -1,5 +1,6 @@
 <?php 
   require_once('functions.php'); 
+  require_once('../constants.php'); 
   add(); 
   listarMonitores();
 ?>
@@ -48,9 +49,9 @@
                     <div class="form-group col-md-3">
                       <label for="estado">Estado</label>
                         <select class="form-control" name="curso['estado']">
-                            <option value="Andamento">Andamento</option>
-                            <option value="Cancelado">Cancelado</option>
-                            <option value="Concluido">Concluído</option>
+                            <option value="<?= CURSO_ESTADO_ANDAMENTO ?>"><?= CURSO_ESTADO_ANDAMENTO ?></option>
+                            <option value="<?= CURSO_ESTADO_CANCELADO ?>"><?= CURSO_ESTADO_CANCELADO ?></option>
+                            <option value="<?= CURSO_ESTADO_CONCLUIDO ?>"><?= CURSO_ESTADO_CONCLUIDO ?></option>
                         </select>
                     </div>
                        
@@ -67,8 +68,8 @@
                     <div class="form-group col-md-3">
                       <label for="tipo">Tipo</label>
                         <select class="form-control" name="curso['tipo']">
-                            <option value="Curso">Curso</option>
-                            <option value="Preceptoria">Preceptoria</option>                            
+                            <option value="<?= CURSO_TIPO_CURSO ?>"><?= CURSO_TIPO_CURSO ?></option>
+                            <option value="<?= CURSO_TIPO_PRECEPTORIA ?>"><?= CURSO_TIPO_PRECEPTORIA ?></option>                            
                         </select>
                     </div>                   
                   </div>

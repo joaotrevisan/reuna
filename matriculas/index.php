@@ -77,10 +77,10 @@
                         <div class="col-4" align="left">
                             <b>Aluno</b>
                         </div> 
-                        <div class="col-3"  align="left">
+                        <div class="col-3">
                             <b id="cursoAtualSit">Situação Curso Atual</b>
                         </div>
-                        <div class="col-2"  align="left">
+                        <div class="col-2">
                             <b>Curso Inscrito</b>
                         </div>                                             
                     </div>
@@ -101,10 +101,10 @@
                                 <div class="col-4" align="left">
                                     <?php echo $aluno['nome_completo']; ?>
                                 </div>
-                                <div class="col-3" align="left">
+                                <div class="col-3">
                                     <?php echo $aluno['estado']; ?>
                                 </div>
-                                <div class="col-2" align="left">
+                                <div class="col-2">
                                     <?php echo $aluno['curso_atual']; ?>
                                 </div>                                
                             </div>
@@ -130,7 +130,7 @@
 <script>
     
     var cmbCursoAtual = document.getElementById("cursoAtual");
-    document.getElementById("cursoAtualSit").innerHTML = cmbCursoAtual.options[cmbCursoAtual.selectedIndex].text;
+    document.getElementById("cursoAtualSit").innerHTML = "["+cmbCursoAtual.options[cmbCursoAtual.selectedIndex].text+"]";
 
     function cursoAtualOnChange(){
         

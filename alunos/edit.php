@@ -1,5 +1,6 @@
 <?php 
   require_once('functions.php'); 
+  require_once('../constants.php');
   edit();
 ?>
 
@@ -37,29 +38,29 @@
                     <div class="form-group col-md-2">
                       <label for="signo">Signo</label>
                         <select class="form-control" name="aluno['signo']" value="<?php echo $aluno['signo']; ?>">
-                            <option <?php if ($aluno['signo'] == 'Aquario') echo 'selected'; ?> value="Aquario">Aquário</option>
-                            <option <?php if ($aluno['signo'] == 'Peixes') echo 'selected'; ?> value="Peixes">Peixes</option>
-                            <option <?php if ($aluno['signo'] == 'Aries') echo 'selected'; ?> value="Aries">Áries</option>
-                            <option <?php if ($aluno['signo'] == 'Trouro') echo 'selected'; ?> value="Trouro">Touro</option>
-                            <option <?php if ($aluno['signo'] == 'Gemeos') echo 'selected'; ?> value="Gemeos">Gêmeos</option>
-                            <option <?php if ($aluno['signo'] == 'Cancer') echo 'selected'; ?> value="Cancer">Câncer</option>
-                            <option <?php if ($aluno['signo'] == 'Leao') echo 'selected'; ?> value="Leao">Leão</option>
-                            <option <?php if ($aluno['signo'] == 'Virgem') echo 'selected'; ?> value="Virgem">Virgem</option>
-                            <option <?php if ($aluno['signo'] == 'Libra') echo 'selected'; ?> value="Libra">Libra</option>
-                            <option <?php if ($aluno['signo'] == 'Escorpiao') echo 'selected'; ?> value="Escorpiao">Escorpião</option>
-                            <option <?php if ($aluno['signo'] == 'Sagitario') echo 'selected'; ?> value="Sagitario">Sagitário</option>
-                            <option <?php if ($aluno['signo'] == 'Capricornio') echo 'selected'; ?> value="Capricornio">Capricórnio</option>
+                            <option <?php if ($aluno['signo'] == SIGNO_AQUARIO) echo 'selected'; ?> value="<?= SIGNO_AQUARIO ?>"><?= SIGNO_AQUARIO ?></option>
+                            <option <?php if ($aluno['signo'] == SIGNO_PEIXES) echo 'selected'; ?> value="<?= SIGNO_PEIXES ?>"><?= SIGNO_PEIXES ?></option>
+                            <option <?php if ($aluno['signo'] == SIGNO_ARIES) echo 'selected'; ?> value="<?= SIGNO_ARIES ?>"><?= SIGNO_ARIES ?></option>
+                            <option <?php if ($aluno['signo'] == SIGNO_TOURO) echo 'selected'; ?> value="<?= SIGNO_TOURO ?>"><?= SIGNO_TOURO ?></option>
+                            <option <?php if ($aluno['signo'] == SIGNO_GEMEOS) echo 'selected'; ?> value="<?= SIGNO_GEMEOS ?>"><?= SIGNO_GEMEOS ?></option>
+                            <option <?php if ($aluno['signo'] == SIGNO_CANCER) echo 'selected'; ?> value="<?= SIGNO_CANCER ?>"><?= SIGNO_CANCER ?></option>
+                            <option <?php if ($aluno['signo'] == SIGNO_LEAO) echo 'selected'; ?> value="<?= SIGNO_LEAO ?>"><?= SIGNO_LEAO ?></option>
+                            <option <?php if ($aluno['signo'] == SIGNO_VIRGEM) echo 'selected'; ?> value="<?= SIGNO_VIRGEM ?>"><?= SIGNO_VIRGEM ?></option>
+                            <option <?php if ($aluno['signo'] == SIGNO_LIBRA) echo 'selected'; ?> value="<?= SIGNO_LIBRA ?>"><?= SIGNO_LIBRA ?></option>
+                            <option <?php if ($aluno['signo'] == SIGNO_ESCORPIAO) echo 'selected'; ?> value="<?= SIGNO_ESCORPIAO ?>"><?= SIGNO_ESCORPIAO ?></option>
+                            <option <?php if ($aluno['signo'] == SIGNO_SAGITARIO) echo 'selected'; ?> value="<?= SIGNO_SAGITARIO ?>"><?= SIGNO_SAGITARIO ?></option>
+                            <option <?php if ($aluno['signo'] == SIGNO_CAPRICORNIO) echo 'selected'; ?> value="<?= SIGNO_CAPRICORNIO ?>"><?= SIGNO_CAPRICORNIO ?></option>
                         </select>
                     </div>
 
                     <div class="form-group col-md-3">
                       <label for="estado_civil">Estado Civil</label>
                         <select class="form-control" name="aluno['estado_civil']" value="<?php echo $aluno['estado_civil']; ?>">
-                            <option <?php if ($aluno['estado_civil'] == 'Solteiro') echo 'selected'; ?> value="Solteiro">Solteiro(a)</option>
-                            <option <?php if ($aluno['estado_civil'] == 'Casado') echo 'selected'; ?> value="Casado">Casado(a)</option>
-                            <option <?php if ($aluno['estado_civil'] == 'Divorciado') echo 'selected'; ?> value="Divorciado">Divorciado(a)</option>
-                            <option <?php if ($aluno['estado_civil'] == 'Viuvo') echo 'selected'; ?> value="Viuvo">Viúvo(a)</option>
-                            <option <?php if ($aluno['estado_civil'] == 'Separado') echo 'selected'; ?> value="Separado">Separado(a)</option>
+                            <option <?php if ($aluno['estado_civil'] == ESTADO_CIVIL_SOLTEIRO) echo 'selected'; ?> value="<?= ESTADO_CIVIL_SOLTEIRO ?>"><?= ESTADO_CIVIL_SOLTEIRO ?></option>
+                            <option <?php if ($aluno['estado_civil'] == ESTADO_CIVIL_CASADO) echo 'selected'; ?> value="<?= ESTADO_CIVIL_CASADO ?>"><?= ESTADO_CIVIL_CASADO ?></option>
+                            <option <?php if ($aluno['estado_civil'] == ESTADO_CIVIL_DIVORCIADO) echo 'selected'; ?> value="<?= ESTADO_CIVIL_DIVORCIADO ?>"><?= ESTADO_CIVIL_DIVORCIADO ?></option>
+                            <option <?php if ($aluno['estado_civil'] == ESTADO_CIVIL_VIUVO) echo 'selected'; ?> value="<?= ESTADO_CIVIL_VIUVO ?>"><?= ESTADO_CIVIL_VIUVO ?></option>
+                            <option <?php if ($aluno['estado_civil'] == ESTADO_CIVIL_SEPARADO) echo 'selected'; ?> value="<?= ESTADO_CIVIL_SEPARADO ?>"><?= ESTADO_CIVIL_SEPARADO ?></option>
                         </select>
                     </div>
 
@@ -118,8 +119,8 @@
                     <div class="form-group col-md-2">
                       <label for="tipo">Tipo</label>
                         <select class="form-control" name="aluno['tipo']" value="<?php echo $aluno['tipo']; ?>">
-                            <option <?php if ($aluno['tipo'] == 'Aluno') echo 'selected'; ?> value="Aluno">Aluno</option>
-                            <option <?php if ($aluno['tipo'] == 'Monitor') echo 'selected'; ?> value="Monitor">Monitor</option>
+                            <option <?php if ($aluno['tipo'] == ALUNO_TIPO_ALUNO) echo 'selected'; ?> value="<?= ALUNO_TIPO_ALUNO ?>"><?= ALUNO_TIPO_ALUNO ?></option>
+                            <option <?php if ($aluno['tipo'] == ALUNO_TIPO_MONITOR) echo 'selected'; ?> value="<?= ALUNO_TIPO_MONITOR ?>"><?= ALUNO_TIPO_MONITOR ?></option>
                         </select>
                     </div>
                   </div>
