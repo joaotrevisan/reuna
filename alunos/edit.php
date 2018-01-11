@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-header">
                 <center>
-                    <h3 align="left"><i class="fas fa-graduation-cap fa-1x"></i>&nbsp;&nbsp;&nbsp;Alunos</h3>
+                    <h3 align="left"><i class="fas fa-graduation-cap fa-1x"></i>&nbsp;&nbsp;&nbsp;Aluno</h3>
                 </center>
             </div>
             <div class="card-body">

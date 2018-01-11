@@ -22,6 +22,7 @@ CREATE TABLE alunos (
   tipo varchar(25) NOT NULL,
   indicacao varchar(255) NOT NULL,
   data_entrevista date NOT NULL,
+  foto varchar(255) NOT NULL,
   created datetime NOT NULL,
   modified datetime NOT NULL
 );
