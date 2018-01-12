@@ -213,32 +213,32 @@
                               <div class="col-md-5">
                                 <div class="row" align="center">
                                     <div class="form-group col-md-1">
-                                      <label for="x">-</label>                              
+                                      <label for="x"><?= $m['falta_seg'] ?></label>                              
                                     </div>
                                     <div class="form-group col-md-2">
-                                      <label for="x">-</label>                              
+                                      <label for="x"><?= $m['falta_ter'] ?></label>                              
                                     </div>
                                     <div class="form-group col-md-2">
-                                      <label for="x">X</label>                              
+                                      <label for="x"><?= $m['falta_qua'] ?></label>                              
                                     </div>
                                     <div class="form-group col-md-2">
-                                      <label for="x">X</label>                              
+                                      <label for="x"><?= $m['falta_qui'] ?></label>                              
                                     </div>
                                     <div class="form-group col-md-2">
-                                      <label for="x">-</label>                              
+                                      <label for="x"><?= $m['falta_sex'] ?></label>                              
                                     </div>
                                     <div class="form-group col-md-2">
-                                      <label for="x">-</label>                              
+                                      <label for="x"><?= $m['falta_sab'] ?></label>                              
                                     </div>
                                     <div class="form-group col-md-1">
-                                      <label for="x">X</label>                              
+                                      <label for="x"><?= $m['falta_dom'] ?></label>                              
                                     </div> 
                                   </div>
                               </div>
                               
                               <div class="col">
                                 <div class="btn-group" role="group">
-                                    <a href="edit.php?id=<?php echo $curso['id']; ?>" class="btn btn-sm btn-outline-primary" >
+                                    <a href="../matriculas/edit.php?id=<?php echo $m['id_matricula']; ?>&idAluno=<?php echo $m['id_aluno']; ?>&nomeAluno=<?php echo $m['nome_aluno']; ?>&nomeCurso=<?php echo $m['nome_curso']; ?>" class="btn btn-sm btn-outline-primary" >
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 </div>
@@ -255,7 +255,11 @@
                       <br> <!-- colocar como padrao -->
                       <div id="actions" class="row">
                         <div class="col-md-12">
-                          <button type="submit" class="btn btn-outline-primary"><i class="fas fa-exchange-alt"></i> Transferir de Curso</button>
+                            <?php if ($matriculas) : ?>
+                                <a href="../matriculas/index.php?idCursoAtual=<?php echo $matriculas[0]['id_curso']; ?>&idAlunoAtual=<?php echo $matriculas[0]['id_aluno']; ?>" class="btn btn-sm btn-outline-primary" >
+                                    <i class="fas fa-exchange-alt fa-1x"></i> Transferir de Curso
+                                </a> 
+                            <?php endif; ?>
                         </div>
                       </div>
                     </form>

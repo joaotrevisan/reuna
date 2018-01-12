@@ -343,14 +343,17 @@ function findAlunosByNome($nome = null) {
 /**
  *  Pesquisa todos os Alunos por curso
  */
-function findAlunosByCurso($idCurso = null) {
+function findAlunosByCurso($idCurso = null, $idAluno = null) {
   
 	$database = open_database();
 	$found = null;
 
+    $sqlIdAluno = (isset($idAluno) ? " AND m.id_aluno = ".$idAluno : "");
+    
 	try {
-	    $sql = "SELECT a.id, a.nome_completo, a.curso_atual, m.estado FROM alunos as a inner join matriculas as m on a.id = m.id_aluno where m.id_curso = ".$idCurso." order by m.estado, a.nome_completo";
-	    $result = $database->query($sql);
+        $sql = "SELECT a.id, a.nome_completo, a.curso_atual, m.estado FROM alunos as a inner join matriculas as m on a.id = m.id_aluno where m.id_curso = ".$idCurso .$sqlIdAluno." order by m.estado, a.nome_completo";
+	    
+        $result = $database->query($sql);
         
         if ($result->num_rows > 0) {
 	      $found = $result->fetch_all(MYSQLI_ASSOC);
@@ -373,9 +376,10 @@ function findMatriculasByAluno($idAluno = null) {
   
     $database = open_database();
 	$found = null;
-
-	try {
-	    $sql = "SELECT a.id as id_aluno, m.id as id_matricula, c.nome as nome_curso, m.estado, m.cadeira, m.dias_incompletos, DATE_FORMAT(c.data_inicio, '%d/%m/%Y')  as data_inscricao
+    
+    try {
+	    $sql = "SELECT a.id as id_aluno, a.nome_completo as nome_aluno, m.id as id_matricula, c.id as id_curso, c.nome as nome_curso, m.estado, m.cadeira, 
+                m.falta_seg, m.falta_ter, m.falta_qua, m.falta_qui, m.falta_sex, m.falta_sab, m.falta_dom, DATE_FORMAT(c.data_inicio, '%d/%m/%Y')  as data_inscricao
                 FROM alunos as a 
                 inner join matriculas as m on a.id = m.id_aluno 
                 inner join cursos as c on c.id = m.id_curso

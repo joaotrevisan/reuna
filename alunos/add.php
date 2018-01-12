@@ -125,7 +125,7 @@
                             <option value="<?= ALUNO_TIPO_MONITOR ?>"><?= ALUNO_TIPO_MONITOR ?></option>
                         </select>
                     </div>
-                    <div class="form-group col-md-1.5">
+                    <div class="form-group col-md-3">
                         <label for="data_entrevista">Data de entrevista</label>
                         <input type="date" class="form-control" name="aluno['data_entrevista']">
                     </div>

@@ -2,7 +2,7 @@
     require_once('functions.php');
 
     if(isset($_GET['idCursoAtual']))
-        index($_GET['idCursoAtual']);
+        index($_GET['idCursoAtual'], $_GET['idAlunoAtual']);
     else
         index();
 ?>
