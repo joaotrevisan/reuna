@@ -249,7 +249,7 @@ function atualizarEstadoMatricula($idAluno = null, $idCursoDestino = null, $stat
 /**
  *  Atualiza o curso atual do aluno
  */
-function atualizarCursoAtualAluno($idAluno = null, $cursoAtual){
+function atualizarCursoAtualAluno($idAluno = null, $cursoAtual = null){
     
     $database = open_database();
     
@@ -266,6 +266,26 @@ function atualizarCursoAtualAluno($idAluno = null, $cursoAtual){
     }    
 }
 
+/**
+ *  Atualiza o campo X da matricula
+ */
+function atualizarCampoMatricula($idMatricula = null, $strCampo = null, $valorCampo = null){
+    
+    $database = open_database();
+    
+    $modified = date_create('now', new DateTimeZone('America/Sao_Paulo'))->format("Y-m-d H:i:s");
+    
+    try{        
+        $sql = "UPDATE matriculas SET ".$strCampo." = '".$valorCampo."', modified = '".$modified."' WHERE id = ".$idMatricula.";";
+        $database->query($sql);
+        return "1";
+    }
+     catch (Exception $e){
+        $_SESSION['message'] = $e->GetMessage();
+        $_SESSION['type'] = 'danger';         
+        return "0";
+    }    
+}
 
 function findUsuario( $usuario = null, $senha = null ){
     
@@ -372,10 +392,16 @@ function findAlunosByCurso($idCurso = null, $idAluno = null) {
 /**
  *  Pesquisa todos as matriculas de um aluno
  */
-function findMatriculasByAluno($idAluno = null) {
+function findMatriculasByAluno($idAluno = null, $idCurso = null) {
   
     $database = open_database();
 	$found = null;
+    
+    $strWhere = "";
+    if (isset($idAluno)) //Se passar o aluno filtra por ele
+        $strWhere = "a.id = ".$idAluno;
+    if (isset($idCurso)) //Se passar o curso filtra por curso -> prioridade aluno
+        $strWhere = "c.id = ".$idCurso;
     
     try {
 	    $sql = "SELECT a.id as id_aluno, a.nome_completo as nome_aluno, m.id as id_matricula, c.id as id_curso, c.nome as nome_curso, m.estado, m.cadeira, 
@@ -383,7 +409,7 @@ function findMatriculasByAluno($idAluno = null) {
                 FROM alunos as a 
                 inner join matriculas as m on a.id = m.id_aluno 
                 inner join cursos as c on c.id = m.id_curso
-                WHERE a.id = ".$idAluno;
+                WHERE ".$strWhere;
         
         $result = $database->query($sql);
         
@@ -398,6 +424,13 @@ function findMatriculasByAluno($idAluno = null) {
 	
 	close_database($database);
 	return $found;
+}
+
+/**
+ *  Pesquisa todos as matriculas dos alunos de um curso
+ */
+function findMatriculasByCurso($idCurso = null){
+    return findMatriculasByAluno(null, $idCurso);
 }
 
 

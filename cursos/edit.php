@@ -3,6 +3,7 @@
   require_once('../constants.php'); 
   edit();
   listarMonitores();
+  listarAlunosMatriculados();
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
@@ -84,6 +85,119 @@
                 </form>
             </div>
         </div>
+        
+        
+        <br><br>
+            <!-- ALUNOS MATRICULADAS NUM CURSO -->
+            <div class="card">
+                <div class="card-header">
+                    <center>
+                        <h5 align="left"><i class="fas fa-graduation-cap fa-1x"></i>&nbsp;&nbsp;&nbsp;Alunos</h5>                                              
+                    </center>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                      <!-- area de campos do form -->
+                        
+                        <div class="row">
+                            <div class="form-group col-md-2">
+                              <label for="x">Aluno</label>                              
+                            </div>
+                            <div class="form-group col-md-2">
+                              <label for="x">Situação</label>                              
+                            </div>
+                            <div class="form-group col-md-1" align="center">
+                              <label for="x">Cadeira</label>                              
+                            </div>
+                            
+                            <div class="form-group col-md-1" align="center">
+                              <label for="x">SEG</label>                              
+                            </div>
+                            <div class="form-group col-md-1" align="center">
+                              <label for="x">TER</label>                              
+                            </div>
+                            <div class="form-group col-md-1" align="center">
+                              <label for="x">QUA</label>                              
+                            </div>
+                            <div class="form-group col-md-1" align="center">
+                              <label for="x">QUI</label>                              
+                            </div>
+                            <div class="form-group col-md-1" align="center">
+                              <label for="x">SEX</label>                              
+                            </div>
+                            <div class="form-group col-md-1" align="center">
+                              <label for="x">SAB</label>                              
+                            </div>
+                            <div class="form-group col-md-1" align="center">
+                              <label for="x">DOM</label>                              
+                            </div>   
+                        </div>
+                        
+                      <?php if ($matriculas) : ?>
+                        <?php foreach ($matriculas as $m) : ?>
+                        <hr>
+                          <div class="row">                                                            
+                            <div class="form-group col-md-2">
+                              <label for="x" style="text-transform: uppercase;"><?php echo $m['nome_aluno']; ?></label>                              
+                            </div>
+                            <div class="form-group col-md-2">                                
+                                <select class="form-control" id="<?= $m['id_matricula'].'&estado'; ?>" value="<?= $m['estado']; ?>" onchange="atualizaCampoOnchange(this);">
+                                    <option <?php if ($m['estado'] == MATRICULA_TIPO_INSCRITO) echo 'selected'; ?> value="<?= MATRICULA_TIPO_INSCRITO ?>"><?= MATRICULA_TIPO_INSCRITO ?></option>
+                                    <option <?php if ($m['estado'] == MATRICULA_TIPO_REPETICAO) echo 'selected'; ?> value="<?= MATRICULA_TIPO_REPETICAO ?>"><?= MATRICULA_TIPO_REPETICAO ?></option>
+                                    <option <?php if ($m['estado'] == MATRICULA_TIPO_CONCLUIDO) echo 'selected'; ?> value="<?= MATRICULA_TIPO_CONCLUIDO ?>"><?= MATRICULA_TIPO_CONCLUIDO ?></option>
+                                    <option <?php if ($m['estado'] == MATRICULA_TIPO_DESISTENCIA) echo 'selected'; ?> value="<?= MATRICULA_TIPO_DESISTENCIA ?>"><?= MATRICULA_TIPO_DESISTENCIA ?></option>
+                                    <option <?php if ($m['estado'] == MATRICULA_TIPO_INCOMPLETO) echo 'selected'; ?> value="<?= MATRICULA_TIPO_INCOMPLETO ?>"><?= MATRICULA_TIPO_INCOMPLETO ?></option>
+                                    <option <?php if ($m['estado'] == MATRICULA_TIPO_REPOSICAO) echo 'selected'; ?> value="<?= MATRICULA_TIPO_REPOSICAO ?>"><?= MATRICULA_TIPO_REPOSICAO ?></option>
+                                </select>
+                            </div> 
+                            <div class="form-group col-md-1" align="center">
+                                <input type="text" class="form-control" id="<?= $m['id_matricula'].'&cadeira'; ?>" style="text-transform: uppercase;" value="<?= $m['cadeira']; ?>" onchange="atualizaCampoOnchange(this);">
+                            </div>   
+                            
+                              
+                            <div class="form-group col-md-1">
+                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_seg'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_seg']; ?>" onchange="atualizaCampoOnchange(this);">
+                            </div>
+                            <div class="form-group col-md-1">
+                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_ter'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_ter']; ?>" onchange="atualizaCampoOnchange(this);"> 
+                            </div>
+                            <div class="form-group col-md-1">
+                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_qua'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_qua']; ?>" onchange="atualizaCampoOnchange(this);"> 
+                            </div>
+                            <div class="form-group col-md-1">
+                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_qui'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_qui']; ?>" onchange="atualizaCampoOnchange(this);"> 
+                            </div>
+                            <div class="form-group col-md-1">
+                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_sex'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_sex']; ?>" onchange="atualizaCampoOnchange(this);"> 
+                            </div>
+                            <div class="form-group col-md-1">
+                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_sab'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_sab']; ?>" onchange="atualizaCampoOnchange(this);"> 
+                            </div>
+                            <div class="form-group col-md-1">
+                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_dom'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_dom']; ?>" onchange="atualizaCampoOnchange(this);"> 
+                            </div>                                                  
+                              
+                          </div>
+                        <?php endforeach; ?>
+                        <?php else : ?>                            
+                            <div class="col">
+                                Nenhum registro encontrado.
+                            </div>                            
+                        <?php endif; ?>
+                        
+                        <br> <!-- colocar como padrao -->
+                        <div id="actions" class="row">
+                        <div class="col-md-12">
+                            <?php if ($matriculas) : ?>
+                                <a href="#" class="btn btn-outline-info" > <i class="fas fa-print fa-1x"></i> Lista de Presença Secretaria</a> 
+                                <a href="#" class="btn btn-outline-info" > <i class="fas fa-print fa-1x"></i> Lista de Presença Portaria</a> 
+                                <a href="#" class="btn btn-outline-info" > <i class="fas fa-print fa-1x"></i> Lista de Crachas</a> 
+                            <?php endif; ?>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+            </div>
     </div>
 </div>
 
@@ -96,4 +210,35 @@
         var x = document.getElementById("selectMonitor").selectedIndex;
         document.getElementById('inputMonitor').value=  document.getElementsByTagName("option")[x].text;
     }
+    
+    // Prepara a lista de matriculas para atualizacao na base
+    function montarLista()
+    {
+        alert("boa");
+        event.preventDefault();
+        
+    }
+    
+    // Prepara a lista de matriculas para atualizacao na base
+    function atualizaCampoOnchange(field)
+    {        
+        var tmp = field.id.split("&");
+        
+        var idMatricula = tmp[0];
+        var strField = tmp[1];
+        var valueField = field.value;                
+        
+        callPHP(idMatricula, strField, valueField);        
+    }
+    
+    function callPHP(idMatricula, strField, valueField){
+        
+        //Chamada AJAX para comunicar com o PHP
+        $.post('updateMatricula.php', {p_idMatricula:idMatricula, p_strField:strField, p_valueField:valueField}, 
+              function(data){
+                if(data!="1") alert("Erro ao atualizar registro [matricula: '"+idMatricula+"', campo: '"+strField+"', valor: '"+valueField+"']");
+            });
+    }   
+    
+    
 </script>

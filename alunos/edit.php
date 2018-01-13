@@ -256,7 +256,7 @@
                       <div id="actions" class="row">
                         <div class="col-md-12">
                             <?php if ($matriculas) : ?>
-                                <a href="../matriculas/index.php?idCursoAtual=<?php echo $matriculas[0]['id_curso']; ?>&idAlunoAtual=<?php echo $matriculas[0]['id_aluno']; ?>" class="btn btn-sm btn-outline-primary" >
+                                <a href="../matriculas/index.php?idCursoAtual=<?php echo $matriculas[0]['id_curso']; ?>&idAlunoAtual=<?php echo $matriculas[0]['id_aluno']; ?>" class="btn btn-outline-info" >
                                     <i class="fas fa-exchange-alt fa-1x"></i> Transferir de Curso
                                 </a> 
                             <?php endif; ?>

@@ -95,4 +95,13 @@ function delete($id = null) {
   header('location: index.php');
 }
 
+/**
+ *  Recupera todos os alunos matriculados no curso
+ */
+function listarAlunosMatriculados(){
+    global $matriculas;
+    
+    if (isset($_GET['id'])) //id do Curso
+        $matriculas = findMatriculasByCurso($_GET['id']);      
+}
 
