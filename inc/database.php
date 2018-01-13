@@ -215,7 +215,6 @@ function criarMatriculaComoNovoAluno($id_aluno = null){
     try{
         if(isset($id_aluno)){
             $sql = "INSERT INTO matriculas (id, id_aluno, id_curso, estado, cadeira, created, modified) VALUES (NULL, ".$id_aluno.", 1, 'Inscrito', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
-            echo $sql;
             $database->query($sql);
         }
     }

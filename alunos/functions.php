@@ -27,11 +27,11 @@ function index($nome = null) {
  */
 function add() {
 
-  if (!empty($_POST['aluno'])) {
+if (!empty($_POST['aluno'])) {
       
     $today = 
       date_create('now', new DateTimeZone('America/Sao_Paulo'));
-
+    
     $aluno = $_POST['aluno'];
     $aluno['modified'] = $aluno['created'] = $today->format("Y-m-d H:i:s");
     $lastId = save('alunos', $aluno);
