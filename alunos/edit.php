@@ -19,7 +19,7 @@
                 <form action="edit.php?id=<?php echo $aluno['id']; ?>" method="post">
                   <!-- area de campos do form -->
                 <div class="row">
-                    <div class="col-md-3" style="border-right: 2px solid rgb(235,235,235);">
+                    <div class="col-md-2" style="border-right: 2px solid rgb(235,235,235);">
                         <center>
                             <img class="form-control" src="fotos/<?php echo $aluno['foto']; ?>" alt="Nenhuma foto selecionada" style="width:150px; height:200px;">
                             <hr>
@@ -29,9 +29,9 @@
                             <input type="text" name="foto" id="inpTxtFoto" value="<?php echo $aluno['foto']; ?>" class="form-control" disabled>
                         </center>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-10">
                         <div class="row">
-                            <div class="form-group col-md-7">
+                            <div class="form-group col-md-6">
                               <label for="nome_completo">Nome Completo</label>
                               <input type="text" class="form-control" name="aluno['nome_completo']" style="text-transform: uppercase;" value="<?php echo $aluno['nome_completo']; ?>">
                             </div>
@@ -41,7 +41,7 @@
                               <input type="date" class="form-control" name="aluno['data_nascimento']" value="<?php echo $aluno['data_nascimento']; ?>">
                             </div>
 
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-3">
                               <label for="hora_nascimento">Hora Nascimento</label>
                               <input type="time" class="form-control" name="aluno['hora_nascimento']" value="<?php echo $aluno['hora_nascimento']; ?>">
                             </div>

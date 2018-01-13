@@ -16,7 +16,7 @@
             <div class="card-body">
                 <form action="add.php" method="post">
                     <div class="row">
-                        <div class="col-md-3" style="border-right: 2px solid rgb(235,235,235);">
+                        <div class="col-md-2" style="border-right: 2px solid rgb(235,235,235);">
                             <center>
                                 <img class="form-control" src="" alt="Nenhuma foto selecionada" style="width:150px; height:200px;">
                                 <hr>
@@ -26,7 +26,7 @@
                                 <input type="text" name="foto" id="inpTxtFoto" class="form-control" disabled>
                             </center>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-10">
                             <div class="row">
                                 <div class="form-group col-md-6">
                                   <label for="nome_completo">Nome Completo</label>
