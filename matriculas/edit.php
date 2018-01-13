@@ -37,7 +37,7 @@ edit($idAluno);
                     </div>
                       
                     <div class="form-group col-md-3">
-                        <label for="situacao">Situaçãol</label>
+                        <label for="situacao">Situação</label>
                         <select class="form-control" name="matricula['estado']" value="<?php echo $matricula['estado']; ?>">
                             <option <?php if ($matricula['estado'] == MATRICULA_TIPO_INSCRITO) echo 'selected'; ?> value="<?= MATRICULA_TIPO_INSCRITO ?>"><?= MATRICULA_TIPO_INSCRITO ?></option>
                             <option <?php if ($matricula['estado'] == MATRICULA_TIPO_REPETICAO) echo 'selected'; ?> value="<?= MATRICULA_TIPO_REPETICAO ?>"><?= MATRICULA_TIPO_REPETICAO ?></option>
