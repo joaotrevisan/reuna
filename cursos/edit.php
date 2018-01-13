@@ -92,7 +92,10 @@
             <div class="card">
                 <div class="card-header">
                     <center>
-                        <h5 align="left"><i class="fas fa-graduation-cap fa-1x"></i>&nbsp;&nbsp;&nbsp;Alunos</h5>                                              
+                        <table style="width:100%"><tr>
+                            <td><h5 align="left"><i class="fas fa-graduation-cap fa-1x"></i>&nbsp;&nbsp;&nbsp;Alunos</h5> </td>
+                            <td align="right"><a href="#" class="btn btn-sm btn-outline-success" onclick="concluirTodoOnClick(this)" > <i class="fas fa-check fa-1x"></i> Concluir Todos</a> </td>
+                            </tr></table>
                     </center>
                 </div>
                 <div class="card-body">
@@ -141,7 +144,7 @@
                               <label for="x" style="text-transform: uppercase;"><?php echo $m['nome_aluno']; ?></label>                              
                             </div>
                             <div class="form-group col-md-2">                                
-                                <select class="form-control" id="<?= $m['id_matricula'].'&estado'; ?>" value="<?= $m['estado']; ?>" onchange="atualizaCampoOnchange(this);">
+                                <select class="form-control" id="<?= 'estado&'.$m['id_matricula']; ?>" value="<?= $m['estado']; ?>" onchange="atualizaCampoOnchange(this);">
                                     <option <?php if ($m['estado'] == MATRICULA_TIPO_INSCRITO) echo 'selected'; ?> value="<?= MATRICULA_TIPO_INSCRITO ?>"><?= MATRICULA_TIPO_INSCRITO ?></option>
                                     <option <?php if ($m['estado'] == MATRICULA_TIPO_REPETICAO) echo 'selected'; ?> value="<?= MATRICULA_TIPO_REPETICAO ?>"><?= MATRICULA_TIPO_REPETICAO ?></option>
                                     <option <?php if ($m['estado'] == MATRICULA_TIPO_CONCLUIDO) echo 'selected'; ?> value="<?= MATRICULA_TIPO_CONCLUIDO ?>"><?= MATRICULA_TIPO_CONCLUIDO ?></option>
@@ -151,30 +154,30 @@
                                 </select>
                             </div> 
                             <div class="form-group col-md-1" align="center">
-                                <input type="text" class="form-control" id="<?= $m['id_matricula'].'&cadeira'; ?>" style="text-transform: uppercase;" value="<?= $m['cadeira']; ?>" onchange="atualizaCampoOnchange(this);">
+                                <input type="text" class="form-control" id="<?= 'cadeira&'.$m['id_matricula']; ?>" style="text-transform: uppercase;" value="<?= $m['cadeira']; ?>" onchange="atualizaCampoOnchange(this);">
                             </div>   
                             
                               
                             <div class="form-group col-md-1">
-                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_seg'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_seg']; ?>" onchange="atualizaCampoOnchange(this);">
+                              <input type="text" maxlength="1" class="form-control" id="<?= 'falta_seg&'.$m['id_matricula']; ?>" style="text-transform: uppercase;" value="<?= $m['falta_seg']; ?>" onchange="atualizaCampoOnchange(this);">
                             </div>
                             <div class="form-group col-md-1">
-                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_ter'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_ter']; ?>" onchange="atualizaCampoOnchange(this);"> 
+                              <input type="text" maxlength="1" class="form-control" id="<?= 'falta_ter&'.$m['id_matricula']; ?>" style="text-transform: uppercase;" value="<?= $m['falta_ter']; ?>" onchange="atualizaCampoOnchange(this);"> 
                             </div>
                             <div class="form-group col-md-1">
-                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_qua'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_qua']; ?>" onchange="atualizaCampoOnchange(this);"> 
+                              <input type="text" maxlength="1" class="form-control" id="<?= 'falta_qua&'.$m['id_matricula']; ?>" style="text-transform: uppercase;" value="<?= $m['falta_qua']; ?>" onchange="atualizaCampoOnchange(this);"> 
                             </div>
                             <div class="form-group col-md-1">
-                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_qui'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_qui']; ?>" onchange="atualizaCampoOnchange(this);"> 
+                              <input type="text" maxlength="1" class="form-control" id="<?= 'falta_qui&'.$m['id_matricula']; ?>" style="text-transform: uppercase;" value="<?= $m['falta_qui']; ?>" onchange="atualizaCampoOnchange(this);"> 
                             </div>
                             <div class="form-group col-md-1">
-                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_sex'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_sex']; ?>" onchange="atualizaCampoOnchange(this);"> 
+                              <input type="text" maxlength="1" class="form-control" id="<?= 'falta_sex&'.$m['id_matricula']; ?>" style="text-transform: uppercase;" value="<?= $m['falta_sex']; ?>" onchange="atualizaCampoOnchange(this);"> 
                             </div>
                             <div class="form-group col-md-1">
-                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_sab'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_sab']; ?>" onchange="atualizaCampoOnchange(this);"> 
+                              <input type="text" maxlength="1" class="form-control" id="<?= 'falta_sab&'.$m['id_matricula']; ?>" style="text-transform: uppercase;" value="<?= $m['falta_sab']; ?>" onchange="atualizaCampoOnchange(this);"> 
                             </div>
                             <div class="form-group col-md-1">
-                              <input type="text" maxlength="1" class="form-control" id="<?= $m['id_matricula'].'&falta_dom'; ?>" style="text-transform: uppercase;" value="<?= $m['falta_dom']; ?>" onchange="atualizaCampoOnchange(this);"> 
+                              <input type="text" maxlength="1" class="form-control" id="<?= 'falta_dom&'.$m['id_matricula']; ?>" style="text-transform: uppercase;" value="<?= $m['falta_dom']; ?>" onchange="atualizaCampoOnchange(this);"> 
                             </div>                                                  
                               
                           </div>
@@ -211,12 +214,22 @@
         document.getElementById('inputMonitor').value=  document.getElementsByTagName("option")[x].text;
     }
     
-    // Prepara a lista de matriculas para atualizacao na base
-    function montarLista()
+    // Altera todas as situacoes como Concluido
+    function concluirTodoOnClick(btn)
     {
-        alert("boa");
-        event.preventDefault();
+        //Recupera todos os dropdows "ESTADO"
+        var list = document.querySelectorAll('[id^=estado]');
         
+        for (var i=0; i<list.length; i++) 
+        {
+            //Para cada drop, alterar para o status "CONCLUIDO"
+            list[i].value = "<?= MATRICULA_TIPO_CONCLUIDO ?>";
+            
+            //Precisa chamar o metodo para autilizar na base
+            atualizaCampoOnchange(list[i]);
+        }
+        
+        alert("Alunos atualizados com sucesso")
     }
     
     // Prepara a lista de matriculas para atualizacao na base
@@ -224,9 +237,9 @@
     {        
         var tmp = field.id.split("&");
         
-        var idMatricula = tmp[0];
-        var strField = tmp[1];
-        var valueField = field.value;                
+        var strField = tmp[0];
+        var idMatricula = tmp[1];        
+        var valueField = field.value;    
         
         callPHP(idMatricula, strField, valueField);        
     }
@@ -236,9 +249,24 @@
         //Chamada AJAX para comunicar com o PHP
         $.post('updateMatricula.php', {p_idMatricula:idMatricula, p_strField:strField, p_valueField:valueField}, 
               function(data){
-                if(data!="1") alert("Erro ao atualizar registro [matricula: '"+idMatricula+"', campo: '"+strField+"', valor: '"+valueField+"']");
+                if(data!="1") alert("Erro ao atualizar registro [matricula: '"+idMatricula+"', campo: '"+strField+"', valor: '"+valueField+"']");            
             });
-    }   
+    }  
+    
+    
+    function getStatusDropdowns(chkboxName) {
+      var checkboxes = document.getElementsByName(chkboxName);
+      var checkboxesChecked = [];
+      // loop over them all
+      for (var i=0; i<checkboxes.length; i++) {
+         // And stick the checked ones onto an array...
+         if (checkboxes[i].checked) {
+            checkboxesChecked.push(checkboxes[i]);
+         }
+      }
+      // Return the array if it is non-empty, or null
+      return checkboxesChecked.length > 0 ? checkboxesChecked : null;
+    }
     
     
 </script>
