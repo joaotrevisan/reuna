@@ -28,7 +28,9 @@ function index($nome = null) {
 function add() {
 
 if (!empty($_POST['aluno'])) {
-      
+    
+    //Copiando a foto da pasta fotos para a pasta fotos/copy com o nome do aluno como nome do arquivo.
+    copy('fotos/'.$_GET['f'],'fotos/copy/'.$_GET['n'].'.png');
     $today = 
       date_create('now', new DateTimeZone('America/Sao_Paulo'));
     
@@ -39,7 +41,7 @@ if (!empty($_POST['aluno'])) {
     //Criar a matricula no curso "entrevista"
     criarMatriculaComoNovoAluno($lastId);     
     
-    header('location: index.php');
+    //header('location: index.php');
   }
 }
 
@@ -55,7 +57,9 @@ function edit() {
   if (isset($_GET['id'])) {
 
     $id = $_GET['id'];
-
+      
+    copy('fotos/'.$_GET['f'],'fotos/copy/'.$_GET['n'].'.png');
+      
     if (isset($_POST['aluno'])) {
 
       $aluno = $_POST['aluno'];

@@ -14,7 +14,7 @@
                 </center>
             </div>
             <div class="card-body">
-                <form action="add.php" method="post">
+                <form action="add.php" id="form" method="post">
                     <div class="row">
                         <div class="col-md-2" style="border-right: 2px solid rgb(235,235,235);">
                             <center>
@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class="form-group col-md-6">
                                   <label for="nome_completo">Nome Completo</label>
-                                  <input type="text" class="form-control" name="aluno['nome_completo']" style="text-transform: uppercase;">
+                                  <input type="text" class="form-control" name="aluno['nome_completo']" id="nome" style="text-transform: uppercase;">
                                 </div>
 
                                 <div class="form-group col-md-3">
@@ -171,6 +171,8 @@
     function receberFoto(){
         $foto = document.getElementById('inpFileFoto').value;
         document.getElementById("inpTxtFoto").value = $foto.slice(12);;
+        document.getElementById("form").action = "add.php?f="+$foto.slice(12)+"&n="+document.getElementById("nome").value;
+        alert("add.php?f="+$foto.slice(12)+"&n="+document.getElementById("nome").value);
     }
 </script>
 

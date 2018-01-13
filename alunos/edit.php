@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-md-2" style="border-right: 2px solid rgb(235,235,235);">
                         <center>
-                            <img class="form-control" src="fotos/<?php echo $aluno['foto']; ?>" alt="Nenhuma foto selecionada" style="width:150px; height:200px;">
+                            <img class="form-control" src="fotos/copy/<?php echo $aluno['foto']; ?>" alt="Nenhuma foto selecionada" style="width:150px; height:200px;">
                             <hr>
                             <input type="file" name="aluno['foto']" id="inpFileFoto" style="width:133px;" onchange="receberFoto()">
                             <br>
@@ -289,6 +289,8 @@
     function receberFoto(){
         $foto = document.getElementById('inpFileFoto').value;
         document.getElementById("inpTxtFoto").value = $foto.slice(12);;
+        document.getElementById("form").action .= "&f="+$foto.slice(12)+"&n="+document.getElementById("nome").value;
+        alert("add.php?f="+$foto.slice(12)+"&n="+document.getElementById("nome").value);
     }
 </script>
 
