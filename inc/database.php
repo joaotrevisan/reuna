@@ -391,7 +391,7 @@ function findAlunosByCurso($idCurso = null, $idAluno = null) {
 /**
  *  Pesquisa todos as matriculas de um aluno
  */
-function findMatriculasByAluno($idAluno = null, $idCurso = null) {
+function findMatriculasByAluno($idAluno = null, $idCurso = null, $orderby = null) {
   
     $database = open_database();
 	$found = null;
@@ -402,13 +402,20 @@ function findMatriculasByAluno($idAluno = null, $idCurso = null) {
     if (isset($idCurso)) //Se passar o curso filtra por curso -> prioridade aluno
         $strWhere = "c.id = ".$idCurso;
     
+    $strOrderBy = "";
+    if (isset($orderby)){ //Monta a ordenacao da lista
+        if ($orderby == "NOME_ALUNO") $strOrderBy = " ORDER BY a.nome_completo";
+        if ($orderby == "CADEIRA") $strOrderBy = " ORDER BY m.cadeira";
+        if ($orderby == "INSCRICAO") $strOrderBy = " ORDER BY m.created";
+    }
+    
     try {
 	    $sql = "SELECT a.id as id_aluno, a.nome_completo as nome_aluno, m.id as id_matricula, c.id as id_curso, c.nome as nome_curso, m.estado, m.cadeira, 
-                m.falta_seg, m.falta_ter, m.falta_qua, m.falta_qui, m.falta_sex, m.falta_sab, m.falta_dom, DATE_FORMAT(c.data_inicio, '%d/%m/%Y')  as data_inscricao
+                m.falta_seg, m.falta_ter, m.falta_qua, m.falta_qui, m.falta_sex, m.falta_sab, m.falta_dom, DATE_FORMAT(c.data_inicio, '%d/%m/%Y') as data_inscricao
                 FROM alunos as a 
                 inner join matriculas as m on a.id = m.id_aluno 
                 inner join cursos as c on c.id = m.id_curso
-                WHERE ".$strWhere;
+                WHERE ".$strWhere . $strOrderBy;
         
         $result = $database->query($sql);
         
@@ -428,8 +435,8 @@ function findMatriculasByAluno($idAluno = null, $idCurso = null) {
 /**
  *  Pesquisa todos as matriculas dos alunos de um curso
  */
-function findMatriculasByCurso($idCurso = null){
-    return findMatriculasByAluno(null, $idCurso);
+function findMatriculasByCurso($idCurso = null, $orderby = null){
+    return findMatriculasByAluno(null, $idCurso, $orderby);
 }
 
 

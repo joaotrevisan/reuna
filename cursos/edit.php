@@ -192,8 +192,8 @@
                         <div id="actions" class="row">
                         <div class="col-md-12">
                             <?php if ($matriculas) : ?>
-                                <a href="#" class="btn btn-outline-info" > <i class="fas fa-print fa-1x"></i> Lista de Presença Secretaria</a> 
-                                <a href="#" class="btn btn-outline-info" > <i class="fas fa-print fa-1x"></i> Lista de Presença Portaria</a> 
+                                <a href="<?= "listaPresenca.php?id=".$curso['id']."&orderby=CADEIRA" ?>" class="btn btn-outline-info" > <i class="fas fa-print fa-1x"></i> Lista de Presença Secretaria</a> 
+                                <a href="<?= "listaPresenca.php?id=".$curso['id']."&orderby=NOME_ALUNO" ?>" class="btn btn-outline-info" > <i class="fas fa-print fa-1x"></i> Lista de Presença Portaria</a> 
                                 <a href="#" class="btn btn-outline-info" > <i class="fas fa-print fa-1x"></i> Lista de Crachas</a> 
                             <?php endif; ?>
                         </div>
