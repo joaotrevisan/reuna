@@ -16,24 +16,24 @@
                 </center>
             </div>
             <div class="card-body">
-                <form action="edit.php?id=<?php echo $aluno['id']; ?>" method="post">
+                <form action="edit.php?id=<?php echo $aluno['id']; ?>" id="form" method="post">
                   <!-- area de campos do form -->
                 <div class="row">
                     <div class="col-md-2" style="border-right: 2px solid rgb(235,235,235);">
                         <center>
-                            <img class="form-control" src="fotos/copy/<?php echo $aluno['foto']; ?>" alt="Nenhuma foto selecionada" style="width:150px; height:200px;">
+                            <img class="form-control" src="fotos/copy/<?php echo $aluno['foto']; ?>" id="imgFoto" alt="Nenhuma foto selecionada" style="width:150px; height:200px;">
                             <hr>
-                            <input type="file" name="aluno['foto']" id="inpFileFoto" style="width:133px;" onchange="receberFoto()">
+                            <input type="file" id="inpFileFoto" style="width:133px;" onchange="receberFoto()">
                             <br>
                             <br>
-                            <input type="text" name="foto" id="inpTxtFoto" value="<?php echo $aluno['foto']; ?>" class="form-control" disabled>
+                            <input  hidden type="text" name="foto" id="inpTxtFoto" id="inpTxtFoto" value="<?php echo $aluno['foto']; ?>" class="form-control" disabled>
                         </center>
                     </div>
                     <div class="col-md-10">
                         <div class="row">
                             <div class="form-group col-md-6">
                               <label for="nome_completo">Nome Completo</label>
-                              <input type="text" class="form-control" name="aluno['nome_completo']" style="text-transform: uppercase;" value="<?php echo $aluno['nome_completo']; ?>">
+                              <input type="text" class="form-control" name="aluno['nome_completo']" id="nome" style="text-transform: uppercase;" value="<?php echo $aluno['nome_completo']; ?>">
                             </div>
 
                             <div class="form-group col-md-3">
@@ -287,10 +287,18 @@
 
 <script type="text/javascript">
     function receberFoto(){
-        $foto = document.getElementById('inpFileFoto').value;
-        document.getElementById("inpTxtFoto").value = $foto.slice(12);;
-        document.getElementById("form").action .= "&f="+$foto.slice(12)+"&n="+document.getElementById("nome").value;
-        alert("add.php?f="+$foto.slice(12)+"&n="+document.getElementById("nome").value);
+        
+        document.getElementById("imgFoto").src = "fotos/"+document.getElementById('inpFileFoto').value.slice(12);
+        
+        var foto = document.getElementById('inpFileFoto').value;
+        var imgArq = foto.slice(12);
+        var imgFormato = imgArq.split(".")[1];
+        
+        var salvarNoBanco = document.getElementById("nome").value+"."+imgFormato;
+        salvarNoBanco = salvarNoBanco.toLowerCase();
+        salvarNoBanco = salvarNoBanco.replace(/ /g,"_");
+        
+        document.getElementById("form").action += "&f="+imgArq+"&n="+salvarNoBanco;
     }
 </script>
 

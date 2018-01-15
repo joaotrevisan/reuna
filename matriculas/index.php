@@ -1,10 +1,15 @@
 <?php
     require_once('functions.php');
 
-    if(isset($_GET['idCursoAtual']))
+    if(isset($_GET['idCursoAtual']) and isset($_GET['idAlunoAtual'])){
         index($_GET['idCursoAtual'], $_GET['idAlunoAtual']);
-    else
+    }
+    else if(isset($_GET['idCursoAtual'])){
+        index($_GET['idCursoAtual'], null);
+    }
+    else{
         index();
+    }
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>

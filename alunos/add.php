@@ -23,7 +23,7 @@
                                 <input type="file" name="aluno['foto']" id="inpFileFoto" style="width:133px;" onchange="receberFoto()">
                                 <br>
                                 <br>
-                                <input type="text" name="foto" id="inpTxtFoto" class="form-control" disabled>
+                                <input hidden type="text" name="foto" id="inpTxtFoto" class="form-control" disabled>
                             </center>
                         </div>
                         <div class="col-md-10">
@@ -169,10 +169,23 @@
 
 <script type="text/javascript">
     function receberFoto(){
-        $foto = document.getElementById('inpFileFoto').value;
-        document.getElementById("inpTxtFoto").value = $foto.slice(12);;
-        document.getElementById("form").action = "add.php?f="+$foto.slice(12)+"&n="+document.getElementById("nome").value;
-        alert("add.php?f="+$foto.slice(12)+"&n="+document.getElementById("nome").value);
+        
+        var foto = document.getElementById('inpFileFoto').value;
+        var imgArq = foto.slice(12);
+        var imgFormato = imgArq.split(".")[1];
+        
+        var salvarNoBanco = document.getElementById("nome").value+"."+imgFormato;
+        salvarNoBanco = salvarNoBanco.toLowerCase();
+        salvarNoBanco = salvarNoBanco.replace(/ /g,"_");
+        
+        document.getElementById("inpTxtFoto").value = imgArq;
+        
+        var action = "add.php?f="+imgArq+"&n="+salvarNoBanco;
+        
+        document.getElementById("form").action = action;
+        alert(document.getElementById("inpFileFoto").value);
+        
+        alert(action);
     }
 </script>
 
