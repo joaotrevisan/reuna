@@ -6,6 +6,7 @@ require_once(DBAPI);
 $cursos = null;
 $curso = null;
 $monitores = null;
+$matriculas = null;
 
 /**
  *  Listagem de Cursos
@@ -76,7 +77,7 @@ function edit() {
 
 
 /**
- *  Visualização de um Cliente
+ *  Visualização de um Curso
  */
 function view($id = null) {
   global $curso;
@@ -98,10 +99,10 @@ function delete($id = null) {
 /**
  *  Recupera todos os alunos matriculados no curso
  */
-function listarAlunosMatriculados(){
+function listarAlunosMatriculados($orderby = null){
     global $matriculas;
     
     if (isset($_GET['id'])) //id do Curso
-        $matriculas = findMatriculasByCurso($_GET['id']);      
+        $matriculas = findMatriculasByCurso($_GET['id'], $orderby);      
 }
 
