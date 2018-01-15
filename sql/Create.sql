@@ -11,6 +11,8 @@ CREATE TABLE alunos (
   estado_civil varchar(100) NOT NULL,
   profissao varchar(150) NOT NULL,
   endereco_residencial varchar(255) NOT NULL,
+  endereco_numero varchar(20) NOT NULL,
+  endereco_complemento varchar(100) NOT NULL,
   bairro varchar(100) NOT NULL,
   cep varchar(10) NOT NULL,
   cidade varchar(100) NOT NULL,

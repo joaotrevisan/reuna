@@ -28,8 +28,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="container" style="padding-top: 10%; width: 400px;">
+    <div class="container" style="padding-top: 20px; width: 400px;">
         <center>
+            <img src="reuna-logo.png" alt="reuna">
             <h1>RE UNA</h1>
             <p>Insira seu usuário e senha para acessar o sistema.</p>
             <?php
