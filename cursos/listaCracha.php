@@ -37,8 +37,10 @@ require_once('../constants.php');
     <bo>
         <table>
             <tr>
-                <td><iframe width="500" height="350" src="../alunos/cracha.php?nome=JOAO VITOR TREVISAN&letra=D" frameborder="0"></iframe></td>
-                <td><iframe width="500" height="350" src="../alunos/cracha.php?nome=LIAMARA GABRIELA TREVISAN&letra=E" frameborder="0"></iframe></td>
+                <td><iframe width="280" height="190" src="../alunos/cracha.php?nome=JOAO VITOR TORNISIEELO TREVISAN&letra=D" frameborder="0"></iframe></td>
+                
+                <td><iframe width="280" height="190" src="../alunos/cracha.php?nome=JOAO VITOR TORNISIEELO TREVISAN&letra=D" frameborder="0"></iframe></td>
+                
             </tr>
         </table>
     </bo>

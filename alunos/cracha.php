@@ -20,8 +20,8 @@ if (isset($_GET['foto'])){
     $foto = $_GET['foto'];
 }
 
-$width = 420;
-$height = 240;
+$width = 260;
+$height = 170;
 ?>
 
 <html>
@@ -45,89 +45,107 @@ $height = 240;
             
             #divMainWhite {
                 position:absolute;
-                top:10;
-                left:10;
-                width: <?= $width-23 ?>px;
-                height: <?= $height-23 ?>px;
+                top:5;
+                left:5;
+                width: <?= $width-10 ?>px;
+                height: <?= $height-10 ?>px;
                 background: #FFF;
             }
             
             #divSubMainColor {
                 position:absolute;
-                top:13;
-                left:13;
-                width: <?= $width-29 ?>px;
-                height: <?= $height-29 ?>px;
+                top:7;
+                left:7;
+                width: <?= $width-14 ?>px;
+                height: <?= $height-14 ?>px;
                 background: #C71585;
             }
             
             #divSubMainWhite {
                 position:absolute;
-                top:17;
-                left:17;
-                width: <?= $width-37 ?>px;
-                height: <?= $height-37 ?>px;
+                top:9;
+                left:9;
+                width: <?= $width-18 ?>px;
+                height: <?= $height-18 ?>px;
                 background: #FFF;
             }
             
             #divFoto {
                 position:absolute;
-                top:20;
-                left:20;
-                width: 120px;
-                height: 150px;                              
+                top:11;
+                left:11;
+                width: 100px;
+                height: 120px;                              
                 border: 1px solid #C71585;
             }
             
             #divNome{
                 position:absolute;
-                top:180;
-                left:20;
-                width: 371px;
+                top:133;
+                left:0;
+                width: <?= $width ?>px;
                 height: 30px;                              
                 border: 0px solid #000;
                 text-align: center;
-                padding-top: 10px;                
+                padding-top: 10px;
+                font-family: "Courier New";
+                font-size: 11px;
+                font-weight: bold;
             }
             
             #divLogo {
                 position:absolute;
-                top:50;
-                left:170;                
+                top:20;
+                left:107;                
                 border: 0px solid #000;
             }
             
             #divLetra {
                 position:absolute;
-                top:150;
-                left:260;                
+                top:85;
+                left:180;                
                 border: 0px solid #000;
                 font-size: 25px;
+                font-family: "Courier New";
+                font-weight: bold;
             }
             
             #divLinhaDiagonal {
                 position:absolute;
-                top:-215;
+                top:-185;
                 left:-20;                
-                width: 25px;
-                height: 442px;
+                width: 13px;
+                height: 354px;
                 background: #C71585;
-                -webkit-transform: skew(62deg); /* Chrome, Opera */
-                    -ms-transform: skew(62deg); /* IE */
-                        transform: skew(62deg); /* Padrão */
+                -webkit-transform: skew(57deg); /* Chrome, Opera */
+                    -ms-transform: skew(57deg); /* IE */
+                        transform: skew(57deg); /* Padrão */
             }
+            
+            #divCorrecao {
+                position:absolute;
+                top:<?= $height-10 ?>;
+                left:<?= $width ?>; 
+                width: 10px;
+                height: 10px;
+                border: 0px solid #000;
+                background-color: #FFF;
+            }
+           
             
         </style>
     </head>
     <body>
-        <div id="divMainColor"></div>        
+        
+        <div id="divMainColor"></div>
         <div id="divMainWhite"></div>
         <div id="divSubMainColor"></div>
         <div id="divSubMainWhite"></div>        
         <div id="divLinhaDiagonal"></div>
-        <div id="divFoto">FOTO</div>
+        <div id="divFoto"></div>
         <div id="divNome"><?= $nome ?></div>
-        <div id="divLogo"><img src="../reuna-logo.png" alt="reuna"></div>
+        <div id="divLogo"><img src="../reuna-logo.png" width="150" height="70" alt="reuna"></div>
         <div id="divLetra"><?= $letra ?></div>
+        <div id="divCorrecao"></div>
     </body>
 </html>
