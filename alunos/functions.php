@@ -30,7 +30,9 @@ function add() {
 if (!empty($_POST['aluno'])) {
     
     //Copiando a foto da pasta fotos para a pasta fotos/copy com o nome do aluno como nome do arquivo.
-    copy('fotos/'.$_GET['f'],'fotos/copy/'.$_GET['n'].'.png');
+    echo "<hr>Nome do arquivo: ".$_GET['n']."<hr>";
+    copy('fotos/'.$_GET['f'],'fotos/copy/'.$_GET['n']);
+    print_r('fotos/copy/'.$_GET['n']);
     $today = 
       date_create('now', new DateTimeZone('America/Sao_Paulo'));
     
@@ -40,7 +42,7 @@ if (!empty($_POST['aluno'])) {
       
     //Criar a matricula no curso "entrevista"
     criarMatriculaComoNovoAluno($lastId);     
-    
+    atualizarFotoAluno($lastId);
     //header('location: index.php');
   }
 }
@@ -58,7 +60,9 @@ function edit() {
 
     $id = $_GET['id'];
       
-    copy('fotos/'.$_GET['f'],'fotos/copy/'.$_GET['n'].'.png');
+    if(isset($_GET['f'])){
+        copy('fotos/'.$_GET['f'],'fotos/copy/'.$_GET['n']);
+    }
       
     if (isset($_POST['aluno'])) {
 
@@ -94,7 +98,6 @@ function delete($id = null) {
 
   global $aluno;
   $aluno = remove('alunos', $id);
-
   header('location: index.php');
 }
 

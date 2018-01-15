@@ -224,6 +224,24 @@ function criarMatriculaComoNovoAluno($id_aluno = null){
     }    
 }
 
+/**
+ * Muda o nome da foto do aluno para seu nome + o formato da imagem
+ */
+function atualizarFotoAluno($id_aluno = null){
+    $database = open_database();
+    
+    print_r("ACESSOU FUNCAO");
+    if(isset($id_aluno)){
+    
+        print_r("ESTÁ COM O ID");
+        $aluno = find('alunos',$id_aluno);
+        $foto = str_replace(' ', '_',strtolower($aluno['nome_completo'].".".explode('.',$aluno['foto'])[1]));
+        $sql = "UPDATE alunos SET foto = '".$foto."' WHERE id = ".$id_aluno;
+        $database->query($sql);
+    }
+    
+    close_database($database);
+}
 
 /**
  *  Atualiza o status da matricula do aluno
