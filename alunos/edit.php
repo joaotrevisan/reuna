@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="form-group col-md-6">
                               <label for="nome_completo">Nome Completo</label>
-                              <input type="text" class="form-control" name="aluno['nome_completo']" id="nome" style="text-transform: uppercase;" value="<?php echo $aluno['nome_completo']; ?>">
+                              <input type="text" class="form-control" name="aluno['nome_completo']" id="nome" style="text-transform: uppercase;" value="<?php echo $aluno['nome_completo']; ?>" maxlength="200" required>
                             </div>
 
                             <div class="form-group col-md-3">
@@ -91,7 +91,7 @@
                           <div class="row">
                             <div class="form-group col-md-2">
                               <label for="cep">CEP</label>
-                              <input type="text" class="form-control" name="aluno['cep']" value="<?php echo $aluno['cep']; ?>">
+                              <input type="text" class="form-control" name="aluno['cep']" value="<?php echo $aluno['cep']; ?>" maxlength="8">
                             </div>
 
                             <div class="form-group col-md-3">
@@ -106,24 +106,24 @@
 
                             <div class="form-group col-md-1">
                               <label for="estado">Estado</label>
-                              <input type="text" class="form-control" name="aluno['estado']" value="<?php echo $aluno['estado']; ?>">
+                              <input type="text" class="form-control" name="aluno['estado']" value="<?php echo $aluno['estado']; ?>" maxlength="2">
                             </div>
 
                             <div class="form-group col-md-2">
                               <label for="telefone">Telefone</label>
-                              <input type="text" class="form-control" name="aluno['telefone']" value="<?php echo $aluno['telefone']; ?>">
+                              <input type="text" class="form-control" name="aluno['telefone']" value="<?php echo $aluno['telefone']; ?>" maxlength="11">
                             </div>
 
                             <div class="form-group col-md-2">
                               <label for="celular">Celular</label>
-                              <input type="text" class="form-control" name="aluno['celular']" value="<?php echo $aluno['celular']; ?>">
+                              <input type="text" class="form-control" name="aluno['celular']" value="<?php echo $aluno['celular']; ?>" maxlength="11">
                             </div>
                           </div>
 
                           <div class="row">
                             <div class="form-group col-md-6">
                               <label for="email">E-mail</label>
-                              <input type="text" class="form-control" name="aluno['email']" style="text-transform: lowercase;" value="<?php echo $aluno['email']; ?>">
+                              <input type="email" class="form-control" name="aluno['email']" style="text-transform: lowercase;" value="<?php echo $aluno['email']; ?>" maxlength="80">
                             </div>
                             <div class="form-group col-md-4">
                               <label for="indicacao">Indicação</label>
@@ -292,13 +292,16 @@
         
         var foto = document.getElementById('inpFileFoto').value;
         var imgArq = foto.slice(12);
-        var imgFormato = imgArq.split(".")[1];
+        //alert(imgArq);
         
-        var salvarNoBanco = document.getElementById("nome").value+"."+imgFormato;
+        var salvarNoBanco = document.getElementById("nome").value+"."+"jpg";
         salvarNoBanco = salvarNoBanco.toLowerCase();
         salvarNoBanco = salvarNoBanco.replace(/ /g,"_");
+        //alert(salvarNoBanco);
         
         document.getElementById("form").action += "&f="+imgArq+"&n="+salvarNoBanco;
+        
+        //alert(document.getElementById("form").action);
     }
 </script>
 

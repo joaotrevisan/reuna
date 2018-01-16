@@ -224,6 +224,22 @@ function criarMatriculaComoNovoAluno($id_aluno = null){
     }    
 }
 
+function apagarMatriculas($id = null){
+    
+    $database = open_database();
+    
+    try{
+        if(isset($id)){
+            $sql = "REMOVE FROM matriculas WHER id_aluno = ".$id;
+            $database->query($sql);
+        }
+    }
+    catch(Exception $e){
+        $_SESSION['message'] = $e->GetMessage();
+        $_SESSION['type'] = 'danger';
+    }
+}
+
 /**
  * Muda o nome da foto do aluno para seu nome + o formato da imagem
  */
@@ -235,7 +251,7 @@ function atualizarFotoAluno($id_aluno = null){
     
         print_r("ESTÁ COM O ID");
         $aluno = find('alunos',$id_aluno);
-        $foto = str_replace(' ', '_',strtolower($aluno['nome_completo'].".".explode('.',$aluno['foto'])[1]));
+        $foto = str_replace(' ', '_',strtolower($aluno['nome_completo'].FORMATO));
         $sql = "UPDATE alunos SET foto = '".$foto."' WHERE id = ".$id_aluno;
         $database->query($sql);
     }

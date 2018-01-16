@@ -30,7 +30,10 @@
     <div class="row">
         <div class="col" align="left">
             <a class="btn btn-sm btn-outline-primary" href="../main/index.php"><i class="fa fa-home 2x"></i> Menu</a>
-            &nbsp;<a class="btn btn-sm btn-outline-success" href="javascript:history.back()"><i class="fa fa-arrow-left 2x"></i> Voltar</a>
+            &nbsp;
+            <a class="btn btn-sm btn-outline-success" href="javascript:history.back()"><i class="fa fa-arrow-left 2x"></i> Voltar</a>
+            &nbsp;
+            <a class="btn btn-sm btn-outline-warning" href="./"><i class="fa fa-arrow-left 2x"></i> Voltar 2.0</a>
         </div>        
         <div class="col" align="right">
             <a class="btn btn-sm btn-outline-danger" href="../main/logoff.php"><i class="fa fa-sign-out-alt 2x"></i> Sair</a>

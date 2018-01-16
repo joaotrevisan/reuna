@@ -43,7 +43,7 @@ if (!empty($_POST['aluno'])) {
     //Criar a matricula no curso "entrevista"
     criarMatriculaComoNovoAluno($lastId);     
     atualizarFotoAluno($lastId);
-    //header('location: index.php');
+    header('location: index.php');
   }
 }
 
@@ -98,6 +98,7 @@ function delete($id = null) {
 
   global $aluno;
   $aluno = remove('alunos', $id);
+  apagarMatriculas($id);
   header('location: index.php');
 }
 

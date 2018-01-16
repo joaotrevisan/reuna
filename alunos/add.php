@@ -18,7 +18,7 @@
                     <div class="row">
                         <div class="col-md-2" style="border-right: 2px solid rgb(235,235,235);">
                             <center>
-                                <img class="form-control" src="" alt="Nenhuma foto selecionada" style="width:150px; height:200px;">
+                                <img class="form-control" id="foto" src="" alt="Nenhuma foto selecionada" style="width:150px; height:200px;">
                                 <hr>
                                 <input type="file" name="aluno['foto']" id="inpFileFoto" style="width:133px;" onchange="receberFoto()">
                                 <br>
@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class="form-group col-md-6">
                                   <label for="nome_completo">Nome Completo</label>
-                                  <input type="text" class="form-control" name="aluno['nome_completo']" id="nome" style="text-transform: uppercase;">
+                                  <input type="text" class="form-control" name="aluno['nome_completo']" id="nome" style="text-transform: uppercase;" maxlength="200" required>
                                 </div>
 
                                 <div class="form-group col-md-3">
@@ -89,7 +89,7 @@
 
                                 <div class="form-group col-md-2">
                                   <label for="cep">CEP</label>
-                                  <input type="text" class="form-control" name="aluno['cep']">
+                                  <input type="text" class="form-control" name="aluno['cep']" maxlength="8">
                                 </div>
 
                                 <div class="form-group col-md-3">
@@ -104,24 +104,24 @@
 
                                 <div class="form-group col-md-1">
                                   <label for="estado">Estado</label>
-                                  <input type="text" class="form-control" name="aluno['estado']" value="SP">
+                                  <input type="text" class="form-control" name="aluno['estado']" value="SP" maxlength="2">
                                 </div>
 
                                 <div class="form-group col-md-2">
                                   <label for="telefone">Telefone</label>
-                                  <input type="text" class="form-control" name="aluno['telefone']">
+                                  <input type="text" class="form-control" name="aluno['telefone']" maxlength="11">
                                 </div>
 
                                 <div class="form-group col-md-2">
                                   <label for="celular">Celular</label>
-                                  <input type="text" class="form-control" name="aluno['celular']" >
+                                  <input type="text" class="form-control" name="aluno['celular']" max-length="11">
                                 </div>
                               </div>
 
                               <div class="row">
                                 <div class="form-group col-md-4">
                                   <label for="email">E-mail</label>
-                                  <input type="text" class="form-control" name="aluno['email']" style="text-transform: lowercase;">
+                                  <input type="email" class="form-control" name="aluno['email']" style="text-transform: lowercase;" maxlength="80">
                                 </div>
 
                                 <div class="form-group col-md-3">
@@ -169,23 +169,29 @@
 
 <script type="text/javascript">
     function receberFoto(){
-        
-        var foto = document.getElementById('inpFileFoto').value;
-        var imgArq = foto.slice(12);
-        var imgFormato = imgArq.split(".")[1];
-        
-        var salvarNoBanco = document.getElementById("nome").value+"."+imgFormato;
-        salvarNoBanco = salvarNoBanco.toLowerCase();
-        salvarNoBanco = salvarNoBanco.replace(/ /g,"_");
-        
-        document.getElementById("inpTxtFoto").value = imgArq;
-        
-        var action = "add.php?f="+imgArq+"&n="+salvarNoBanco;
-        
-        document.getElementById("form").action = action;
-        alert(document.getElementById("inpFileFoto").value);
-        
-        alert(action);
+        if(document.getElementById("nome").value == ""){
+            alert("Digite um nome antes de inserir a foto!");
+            document.getElementById("inpFileFoto").value = "";
+        }
+        else{
+            document.getElementById("foto").src = "fotos/"+document.getElementById('inpFileFoto').value.slice(12);
+            
+            var foto = document.getElementById('inpFileFoto').value;
+            var imgArq = foto.slice(12);
+
+            var salvarNoBanco = document.getElementById("nome").value+"."+"jpg";
+            salvarNoBanco = salvarNoBanco.toLowerCase();
+            salvarNoBanco = salvarNoBanco.replace(/ /g,"_");
+
+            document.getElementById("inpTxtFoto").value = imgArq;
+
+            var action = "add.php?f="+imgArq+"&n="+salvarNoBanco;
+
+            document.getElementById("form").action = action;
+            //alert(document.getElementById("inpFileFoto").value);
+
+            //alert(action);
+        }
     }
 </script>
 
