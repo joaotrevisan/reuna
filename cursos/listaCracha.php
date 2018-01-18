@@ -35,13 +35,17 @@ require_once('../constants.php');
             }
     </style>
     <bo>
-        <table>
-            <tr>
-                <td><iframe width="280" height="190" src="../alunos/cracha.php?nome=JOAO VITOR TORNISIEELO TREVISAN&letra=D" frameborder="0"></iframe></td>
-                
-                <td><iframe width="280" height="190" src="../alunos/cracha.php?nome=JOAO VITOR TORNISIEELO TREVISAN&letra=D" frameborder="0"></iframe></td>
-                
-            </tr>
-        </table>
+        <?php if ($matriculas) : ?>
+            <?php foreach ($matriculas as $matricula) : ?>                
+                <iframe width="280" height="190" src="../alunos/cracha.php?nome=<?= $matricula['nome_aluno']?>&letra=<?= $matricula['letra']?>" frameborder="0"></iframe>
+            <?php endforeach; ?>
+        <?php else : ?>
+        <hr>
+        <div class="row">
+            <div class="col">
+                Nenhum registro encontrado.
+            </div>
+        </div>
+        <?php endif; ?>        
     </bo>
 </html>

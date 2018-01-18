@@ -445,7 +445,8 @@ function findMatriculasByAluno($idAluno = null, $idCurso = null, $orderby = null
     
     try {
 	    $sql = "SELECT a.id as id_aluno, a.nome_completo as nome_aluno, m.id as id_matricula, c.id as id_curso, c.nome as nome_curso, m.estado, m.cadeira, 
-                m.falta_seg, m.falta_ter, m.falta_qua, m.falta_qui, m.falta_sex, m.falta_sab, m.falta_dom, DATE_FORMAT(c.data_inicio, '%d/%m/%Y') as data_inscricao
+                m.falta_seg, m.falta_ter, m.falta_qua, m.falta_qui, m.falta_sex, m.falta_sab, m.falta_dom, DATE_FORMAT(c.data_inicio, '%d/%m/%Y') as data_inscricao,
+                c.letra as letra
                 FROM alunos as a 
                 inner join matriculas as m on a.id = m.id_aluno 
                 inner join cursos as c on c.id = m.id_curso
