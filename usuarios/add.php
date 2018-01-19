@@ -1,5 +1,6 @@
 <?php 
-  require_once('functions.php');
+  require_once('functions.php');    
+  include('../constants.php');
   add();
 ?>
 <html>
@@ -55,9 +56,9 @@
                                 <div class="form-group col">
                                     <label for="estado">Permissão</label>
                                     <select class="form-control" name="usuario['permissao']">
-                                        <option value="0">Programador</option>
-                                        <option value="1">Secretário(a) Geral</option>
-                                        <option value="2">Secratário(a)</option>
+                                        <option value="0"><?= USUARIO_TIPO_PROGRAMADOR ?></option>
+                                        <option value="1"><?= USUARIO_TIPO_SECRETARIA_GERAL ?></option>
+                                        <option value="2"><?= USUARIO_TIPO_SECRETARIA ?></option>
                                     </select>
                                 </div>
                                 <div class="form-group col-3">

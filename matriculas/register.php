@@ -55,7 +55,7 @@ if ($idCursoAtual != 0 && $idCursoDestino != 0 && count($idListaAlunos) > 0 && i
             add($idAluno, $idCursoDestino);
             
             // Para cada Aluno atualiza o curso atual do aluno para o curso Destino
-            updateCursoAtualAluno($idAluno, $nomeCursoDestino);
+            //updateCursoAtualAluno($idAluno, $nomeCursoDestino);
                         
             // ALUNO_NOVO -> curso_atual = 1
             if ($idCursoAtual == 1) {

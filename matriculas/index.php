@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="form-group col-md-5" align="left">
                           <label for="estado_civil">Curso Atual</label>
-                            <select class="form-control" name="$curso['id']" id="cursoAtual" onchange="cursoAtualOnChange()" >                            
+                            <select class="form-control" name="$curso['id']" id="cursoAtual" onchange="cursoAtualOnChange()" >                       <option value="0"> Selecione um curso </option>
                                 <?php if ($cursos) : ?>
                                     <?php foreach ($cursos as $curso) : ?>                                    
                                         <!-- monta o option de curso -->
@@ -141,7 +141,9 @@
         
         var idCursoAtual = document.getElementById("cursoAtual").value;
         
-        window.location.href = "index.php?idCursoAtual="+idCursoAtual;
+        if(idCursoAtual != '0'){
+            window.location.href = "index.php?idCursoAtual="+idCursoAtual;
+        }
     }
     
     //Para cada check de aluno -> recupera o id e monta a variavel para o url de registro

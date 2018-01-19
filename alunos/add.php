@@ -32,7 +32,6 @@
                                   <label for="nome_completo">Nome Completo</label>
                                   <input type="text" class="form-control" name="aluno['nome_completo']" id="nome" style="text-transform: uppercase;" maxlength="200" required>
                                 </div>
-
                                 <div class="form-group col-md-3">
                                   <label for="data_nascimento">Data Nascimento</label>
                                   <input type="date" class="form-control" name="aluno['data_nascimento']">

@@ -14,7 +14,10 @@ $matriculas = null;
 function index() {
 	global $cursos;	
     if (count(find_all('cursos')) > 0){
-        $cursos = array_reverse(find_all('cursos'));        
+        //$cursos = array_reverse(find_all('cursos')); 
+        $cursos = findCursosJoin();
+        echo "<hr>";
+        print_r($cursos);
     }
 }
 
@@ -106,3 +109,21 @@ function listarAlunosMatriculados($orderby = null){
         $matriculas = findMatriculasByCurso($_GET['id'], $orderby);      
 }
 
+function abreviarNome($nome = null){
+    $nomeArray = explode(" ",$nome);
+    $nome = "";
+    $c = 0;
+    while($c < count($nomeArray)){
+        if($c == 0){
+            $nome .= $nomeArray[$c]." ";
+        }
+        else if($c == count($nomeArray) - 1){
+            $nome .= $nomeArray[$c];
+        }
+        else{
+            $nome .= $nomeArray[$c][0].". ";
+        }
+        $c += 1;
+    }
+    return $nome;
+}

@@ -14,22 +14,22 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-sm">
+                    <div class="col-1">
                         <b>#</b>
                     </div>        
-                    <div class="col-4" align="left">
+                    <div class="col-2" align="left">
                         <b>Nome</b>
                     </div>            
-                    <div class="col">
+                    <div class="col-4">
                         <b>Monitor</b>
                     </div>            
-                    <div class="col">
-                        <b>Estado</b>
+                    <div class="col-2">
+                        <b>Situação</b>
                     </div>            
-                    <div class="col">
+                    <div class="col-1">
                         <b>Tipo</b>
                     </div>            
-                    <div class="col">
+                    <div class="col-1">
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <a href="add.php" class="btn btn-sm btn-outline-success">
                                 <i class="fas fa-plus"></i> Adicionar
@@ -44,22 +44,22 @@
                     <?php foreach ($cursos as $curso) : ?>                    
                         <hr>
                         <div class="row">
-                            <div class="col-sm">
+                            <div class="col-1">
                                 <?php echo $curso['id']; ?>
                             </div>
-                            <div class="col-4" align="left">
+                            <div class="col-2" align="left">
                                 <?php echo $curso['nome'] . " - " . $curso['letra']; ?>
                             </div>
-                            <div class="col">
-                                <?php echo $curso['nome_monitor']; ?>
+                            <div class="col-4">
+                                <?php echo abreviarNome($curso['nome_completo']); ?>
                             </div>
-                            <div class="col">
+                            <div class="col-2">
                                 <?php echo $curso['estado']; ?>
                             </div>
-                            <div class="col">
+                            <div class="col-1">
                                 <?php echo $curso['tipo']; ?>
                             </div>
-                            <div class="col">
+                            <div class="col-1">
                                 <div class="btn-group" role="group">
                                     <!--<a href="view.php?id=<?php echo $curso['id']; ?>" class="btn btn-sm btn-outline-primary">
                                         <i class="fa fa-eye"></i>

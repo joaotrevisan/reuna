@@ -210,8 +210,8 @@
     // Quando alterado a combo -> guarda o nome do monitor no input
     function selectMonitorFunction()
     {
-        var x = document.getElementById("selectMonitor").selectedIndex;
-        document.getElementById('inputMonitor').value=  document.getElementsByTagName("option")[x].text;
+        var x = document.getElementById("selectMonitor");
+        document.getElementById('inputMonitor').value = x.options[x.selectedIndex].text;
     }
     
     // Altera todas as situacoes como Concluido

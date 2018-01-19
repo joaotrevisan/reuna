@@ -494,3 +494,21 @@ function excluirMatriculaAlunoNovo($idAluno = null){
     }    
 }
 
+function findCursosJoin(){
+    
+    $database = open_database();
+    
+    try{
+        $sql = "SELECT C.id, C.nome, C.letra, C.tipo, C.estado, A.nome_completo FROM cursos C LEFT JOIN alunos A ON C.id_monitor = A.id";
+        echo $sql;
+        $result = $database -> query($sql);
+        $found = $result->fetch_all(MYSQLI_ASSOC);
+    }
+    catch(Exception $e){
+        $_SESSION['message'] = $e->GetMessage();
+        $_SESSION['type'] = 'danger';
+    }
+	
+	close_database($database);
+	return $found;
+}
