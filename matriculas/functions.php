@@ -17,7 +17,7 @@ function index($idCursoAtual = null, $idAlunoAtual = null) {
     
     global $cursos;
     if (count(find_all('cursos')) > 0){
-        $cursos = array_reverse(find_all('cursos'));        
+        $cursos = array_reverse(find_all('cursos'));
     }	
 }
 

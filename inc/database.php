@@ -1,5 +1,4 @@
 <?php
-
 mysqli_report(MYSQLI_REPORT_STRICT);
 
 
@@ -190,7 +189,7 @@ function criarMatricula($id_aluno = null, $id_curso = null){
     
     $database = open_database();
     
-    $estado = "Inscrito";
+    $estado = MATRICULA_TIPO_INSCRITO;
     $cadeira = 0;
     $created = $modified = date_create('now', new DateTimeZone('America/Sao_Paulo'))->format("Y-m-d H:i:s");
     
@@ -214,7 +213,7 @@ function criarMatriculaComoNovoAluno($id_aluno = null){
     
     try{
         if(isset($id_aluno)){
-            $sql = "INSERT INTO matriculas (id, id_aluno, id_curso, estado, cadeira, created, modified) VALUES (NULL, ".$id_aluno.", 1, 'Inscrito', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
+            $sql = "INSERT INTO matriculas (id, id_aluno, id_curso, estado, cadeira, created, modified) VALUES (NULL, ".$id_aluno.", 1, '".MATRICULA_TIPO_INSCRITO."', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
             $database->query($sql);
         }
     }
@@ -404,7 +403,8 @@ function findAlunosByCurso($idCurso = null, $idAluno = null) {
     $sqlIdAluno = (isset($idAluno) ? " AND m.id_aluno = ".$idAluno : "");
     
 	try {
-        $sql = "SELECT a.id, a.nome_completo, a.curso_atual, m.estado FROM alunos as a inner join matriculas as m on a.id = m.id_aluno where m.id_curso = ".$idCurso .$sqlIdAluno." order by m.estado, a.nome_completo";
+        $sql = $sql = "SELECT M.id, M.id_aluno, M.id_curso, M.estado, A.nome_completo, A.curso_atual FROM matriculas M LEFT JOIN alunos A ON M.id_aluno = A.id WHERE M.id_curso = ".$idCurso . $sqlIdAluno." ORDER BY M.estado, A.nome_completo";
+        //$sql = "SELECT a.id, a.nome_completo, a.curso_atual, m.estado FROM alunos as a INNER JOIN matriculas AS m ON a.id = m.id_aluno WHERE m.id_curso = ".$idCurso .$sqlIdAluno." ORDER BY m.estado, a.nome_completo";
 	    
         $result = $database->query($sql);
         
@@ -494,13 +494,15 @@ function excluirMatriculaAlunoNovo($idAluno = null){
     }    
 }
 
+/**
+ * Encontra os cursos com junto o nome completo do aluno
+ */
 function findCursosJoin(){
     
     $database = open_database();
     
     try{
         $sql = "SELECT C.id, C.nome, C.letra, C.tipo, C.estado, A.nome_completo FROM cursos C LEFT JOIN alunos A ON C.id_monitor = A.id";
-        echo $sql;
         $result = $database -> query($sql);
         $found = $result->fetch_all(MYSQLI_ASSOC);
     }

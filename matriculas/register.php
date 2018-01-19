@@ -63,7 +63,7 @@ if ($idCursoAtual != 0 && $idCursoDestino != 0 && count($idListaAlunos) > 0 && i
                 deleteMatriculaAlunoNovo($idAluno);
             }else{
                 // Para cada Aluno alterar o status da matricula atual para Concluido        
-                updateStatus($idAluno, $idCursoAtual, "Concluido");                
+                updateStatus($idAluno, $idCursoAtual, "INSCRITO");                
             }
                 
         }

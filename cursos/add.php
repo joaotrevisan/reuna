@@ -31,6 +31,7 @@
                       <label for="id_monitor">Monitor</label>
                         <select class="form-control" name="curso['id_monitor']" id="selectMonitor" onchange="selectMonitorFunction()">
                             <!-- DEVE RECUPERAR OS ALUNOS "monitores" E PREENCHER O ARRAY -->
+                            <option value="0" style="color:grey"> Selecione um monitor </option>
                             <?php if ($monitores) : ?>
                                 <?php foreach ($monitores as $monitor) : ?>
                                     <option value="<?php echo $monitor['id']; ?>"><?php echo $monitor['nome_completo']; ?></option>

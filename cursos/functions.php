@@ -16,8 +16,6 @@ function index() {
     if (count(find_all('cursos')) > 0){
         //$cursos = array_reverse(find_all('cursos')); 
         $cursos = findCursosJoin();
-        echo "<hr>";
-        print_r($cursos);
     }
 }
 
