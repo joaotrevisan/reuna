@@ -161,7 +161,24 @@
                 </div>
                 <div class="card-body">
                     <form action="" method="post">
-                      <!-- area de campos do form -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Curso</th>
+                                    <th scope="col">Situação</th>
+                                    <th scope="col">Cadeira</th>
+                                    <th scope="col">SEG</th>
+                                    <th scope="col">TER</th>
+                                    <th scope="col">QUA</th>
+                                    <th scope="col">QUIN</th>
+                                    <th scope="col">SEX</th>
+                                    <th scope="col">SAB</th>
+                                    <th scope="col">DOM</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                      <!-- area de campos do form 
                         
                         <div class="row">
                             <div class="form-group col-md-2">
@@ -202,71 +219,40 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group col-md-1">
+                            <div class="col-md-1">
                               <label for="x"></label>                              
                             </div>
-                            
                         </div>
-                        
+                        -->
+                    <tbody>
                       <?php if ($matriculas) : ?>
                         <?php foreach ($matriculas as $m) : ?>
-                        <hr>
-                          <div class="row">                                                            
-                            <div class="form-group col-md-2">
-                              <label for="x"><?php echo $m['data_inscricao']; ?></label>                              
-                            </div>                              
-                            <div class="form-group col-md-2">
-                              <label for="x"><?php echo $m['nome_curso']; ?></label>                              
-                            </div>
-                            <div class="form-group col-md-1">
-                              <label for="x"><?php echo $m['estado']; ?></label>                              
-                            </div>
-                            <div class="form-group col-md-1" align="center">
-                              <label for="x"><?php echo $m['cadeira']; ?></label>                              
-                            </div>   
-                            
-                              <div class="col-md-5">
-                                <div class="row" align="center">
-                                    <div class="form-group col-md-1">
-                                      <label for="x"><?= $m['falta_seg'] ?></label>                              
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                      <label for="x"><?= $m['falta_ter'] ?></label>                              
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                      <label for="x"><?= $m['falta_qua'] ?></label>                              
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                      <label for="x"><?= $m['falta_qui'] ?></label>                              
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                      <label for="x"><?= $m['falta_sex'] ?></label>                              
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                      <label for="x"><?= $m['falta_sab'] ?></label>                              
-                                    </div>
-                                    <div class="form-group col-md-1">
-                                      <label for="x"><?= $m['falta_dom'] ?></label>                              
-                                    </div> 
-                                  </div>
-                              </div>
-                              
-                              <div class="col">
-                                <div class="btn-group" role="group">
-                                    <a href="../matriculas/edit.php?id=<?php echo $m['id_matricula']; ?>&idAluno=<?php echo $m['id_aluno']; ?>&nomeAluno=<?php echo $m['nome_aluno']; ?>&nomeCurso=<?php echo $m['nome_curso']; ?>" class="btn btn-sm btn-outline-primary" >
+                        <tr>
+                            <td><?php echo $m['data_inscricao']; ?></td>
+                            <td><?php echo $m['nome_curso']; ?></td>
+                            <td><?php echo $m['estado']; ?></td>
+                            <td><?php echo $m['cadeira']; ?></td>
+                            <td><?php echo $m['falta_seg']; ?></td>
+                            <td><?php echo $m['falta_ter']; ?></td>
+                            <td><?php echo $m['falta_qua']; ?></td>
+                            <td><?php echo $m['falta_qui']; ?></td>
+                            <td><?php echo $m['falta_sex']; ?></td>
+                            <td><?php echo $m['falta_sab']; ?></td>
+                            <td><?php echo $m['falta_dom']; ?></td>
+                            <td>
+                                <a href="../matriculas/edit.php?id=<?php echo $m['id_matricula']; ?>&idAluno=<?php echo $m['id_aluno']; ?>&nomeAluno=<?php echo $m['nome_aluno']; ?>&nomeCurso=<?php echo $m['nome_curso']; ?>" class="btn btn-sm btn-outline-primary" >
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                </div>
-                              </div>                                                       
-                              
-                          </div>
+                            </td>
+                        </tr>
                         <?php endforeach; ?>
                         <?php else : ?>                            
                             <div class="col">
                                 Nenhum registro encontrado.
                             </div>                            
                         <?php endif; ?>
-
+                        </tbody>
+                        </table>
                       <br> <!-- colocar como padrao -->
                       <div id="actions" class="row">
                         <div class="col-md-12">
