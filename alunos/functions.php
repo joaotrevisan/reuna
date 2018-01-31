@@ -30,9 +30,10 @@ function add() {
 if (!empty($_POST['aluno'])) {
     
     //Copiando a foto da pasta fotos para a pasta fotos/copy com o nome do aluno como nome do arquivo.
-    echo "<hr>Nome do arquivo: ".$_GET['n']."<hr>";
-    copy('fotos/'.$_GET['f'],'fotos/copy/'.$_GET['n']);
-    print_r('fotos/copy/'.$_GET['n']);
+    
+    if(isset($_GET['f']) && isset($_GET['n']))
+        copy('fotos/'.$_GET['f'],'fotos/copy/'.$_GET['n']);
+    
     $today = 
       date_create('now', new DateTimeZone('America/Sao_Paulo'));
     
@@ -60,7 +61,7 @@ function edit() {
 
     $id = $_GET['id'];
       
-    if(isset($_GET['f'])){
+    if(isset($_GET['f']) && isset($_GET['n'])){
         copy('fotos/'.$_GET['f'],'fotos/copy/'.$_GET['n']);
     }
       

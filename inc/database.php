@@ -135,7 +135,7 @@ function update($table = null, $id = 0, $data = null) {
   $sql .= " WHERE id=" . $id . ";";
 
   try {
-    $database->query($sql);
+    $database->query($sql);      
 
     $_SESSION['message'] = 'Registro atualizado com sucesso.';
     $_SESSION['type'] = 'success';
@@ -178,28 +178,7 @@ function remove( $table = null, $id = null ) {
   close_database($database);
 }
 
-function findJoin( $tablePrinc = null, $colPrinc = null, $tableSec = null, $colSec = null){
-    
-    $database = open_database();
-    
-	$found = null;
-    
-    try{
-        $sql = "SELECT * FROM ".$tablePrinc." a INNER JOIN ".$tableSec." b ON a.".$colPrinc." = b.".$colSec""; 
-        $result = database->query($sql);
-        
-        if ($result->num_rows > 0) {
-            $found = $result->fetch_all(MYSQLI_ASSOC);
-        }
-    }
-    catch(Excepetion $e){
-        $_SESSION['message'] = $e->GetMessage();
-        $_SESSION['type'] = 'danger';
-    }
-    
-    return $found;
-    close_database($database);
-}
+
 
 // ************************************************************
 // MÉTODOS CUSTOMIZADOS
@@ -233,11 +212,12 @@ function criarMatricula($id_aluno = null, $id_curso = null){
 function criarMatriculaComoNovoAluno($id_aluno = null){
     
     $database = open_database();
+    $estado = MATRICULA_TIPO_INSCRITO;    
     
     try{
         if(isset($id_aluno)){
-            $sql = "INSERT INTO matriculas (id, id_aluno, id_curso, estado, cadeira, created, modified) VALUES (NULL, ".$id_aluno.", 1, '".MATRICULA_TIPO_INSCRITO."', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
-            $database->query($sql);
+            $sql = "INSERT INTO matriculas (id, id_aluno, id_curso, estado, cadeira, created, modified) VALUES (NULL, ".$id_aluno.", 1, '".$estado."', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
+            $database->query($sql);            
         }
     }
      catch (Exception $e){
@@ -525,7 +505,28 @@ function findCursosJoin(){
     $database = open_database();
     
     try{
-        $sql = "SELECT C.id, C.nome, C.letra, C.tipo, C.estado, A.nome_completo FROM cursos C LEFT JOIN alunos A ON C.id_monitor = A.id";
+        $sql = "SELECT C.id, C.nome, C.letra, C.tipo, C.estado, A.nome_completo FROM cursos C LEFT JOIN alunos A ON C.id_monitor = A.id ORDER BY C.data_inicio";
+        $result = $database -> query($sql);
+        $found = $result->fetch_all(MYSQLI_ASSOC);
+    }
+    catch(Exception $e){
+        $_SESSION['message'] = $e->GetMessage();
+        $_SESSION['type'] = 'danger';
+    }
+	
+	close_database($database);
+	return $found;
+}
+
+/**
+ * Encontra os os alunos junto com o curso atual
+ */
+function findAlunosJoin(){
+    
+    $database = open_database();
+    
+    try{
+        $sql = "SELECT C.id, C.nome, C.letra, C.tipo, C.estado, A.nome_completo FROM cursos C LEFT JOIN alunos A ON C.id_monitor = A.id ORDER BY C.data_inicio";
         $result = $database -> query($sql);
         $found = $result->fetch_all(MYSQLI_ASSOC);
     }

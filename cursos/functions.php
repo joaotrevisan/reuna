@@ -13,8 +13,7 @@ $matriculas = null;
  */
 function index() {
 	global $cursos;	
-    if (count(find_all('cursos')) > 0){
-        //$cursos = array_reverse(find_all('cursos')); 
+    if (count(find_all('cursos')) > 0){        
         $cursos = findCursosJoin();
     }
 }

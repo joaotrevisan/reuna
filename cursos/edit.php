@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="form-group col-md-3">
-                      <label for="tipó">Tipo</label>                        
+                      <label for="tipo">Tipo</label>                        
                         <select class="form-control" name="curso['tipo']" value="<?php echo $curso['tipo']; ?>">  
                             <option <?php if ($curso['tipo'] == CURSO_TIPO_CURSO) echo 'selected'; ?> value="<?= CURSO_TIPO_CURSO ?>"><?= CURSO_TIPO_CURSO ?></option>
                             <option <?php if ($curso['tipo'] == CURSO_TIPO_PRECEPTORIA) echo 'selected'; ?> value="<?= CURSO_TIPO_PRECEPTORIA ?>"><?= CURSO_TIPO_PRECEPTORIA ?></option>                            
@@ -66,12 +66,12 @@
                        
                     <div class="form-group col-md-3">
                       <label for="data_inicio">Início</label>
-                      <input type="date" class="form-control" name="$curso['data_inicio']" value="<?php echo $curso['data_inicio']; ?>">
+                      <input type="date" class="form-control" name="curso['data_inicio']" value="<?php echo $curso['data_inicio']; ?>">
                     </div>
                        
                     <div class="form-group col-md-3">
                       <label for="data_termino">Término</label>
-                      <input type="date" class="form-control" name="$curso['data_termino']" value="<?php echo $curso['data_termino']; ?>">
+                      <input type="date" class="form-control" name="curso['data_termino']" value="<?php echo $curso['data_termino']; ?>">
                     </div>
                   </div>
 
